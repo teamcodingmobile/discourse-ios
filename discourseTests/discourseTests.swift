@@ -2,10 +2,11 @@
 //  discourseTests.swift
 //  discourseTests
 //
-//  Created by Gerardo Rico Botella on 29/10/2020.
+//  Created by Gerardo Rico Botella on 31/10/2020.
 //
 
 import XCTest
+import Resolver
 @testable import discourse
 
 class discourseTests: XCTestCase {
@@ -18,14 +19,25 @@ class discourseTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testGetLatestTopics() throws {
+        let expectation = XCTestExpectation(description: "Get latest topics")
+        
+        let client = Resolver.resolve(DataClient.self)
+        
+        client.getLatestTopics(atPage: 1) { (latestTopics) in
+            XCTAssertNotNil(latestTopics)
+            XCTAssertTrue((latestTopics as Any) is [TopicItem])
+            expectation.fulfill()
+        } onError: { (error) in
+            XCTFail("Request failed")
+        }
+        
+        wait(for: [expectation], timeout: 10.0)
     }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
-        self.measure {
+        measure {
             // Put the code you want to measure the time of here.
         }
     }
