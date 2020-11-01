@@ -14,11 +14,13 @@ enum HttpClientError: Error {
 }
 
 final class HttpClient: DataClient {
+    
     var baseUrl: URL
     
     var apiKey: String
     
     @Injected var topicItemFactory: TopicItemFactory
+    @Injected var postItemFactory: PostItemFactory
     
     lazy var session: URLSession = {
         let configuration = URLSessionConfiguration.default
@@ -43,6 +45,17 @@ final class HttpClient: DataClient {
             }
         }, onError: error)
     }
+    
+    func postTopic(withTitle title: String, onSuccess success: @escaping (PostItem) -> (), onError error: ((Error?) -> ())?) {
+        send(request: PostTopicRequest(withTitle: title), onSuccess: { [weak self] response in
+        if self != nil {
+            if let response = response {
+                success(self!.postItemFactory.create(from: response))
+            }
+        }
+    }, onError: error)
+    }
+    
     
     private func send<T: HttpRequest>(request: T, onSuccess success: @escaping (T.Response?) -> (), onError failure: ((Error?) -> ())?) {
         let urlRequest = request.build(withBaseUrl: baseUrl, usingApiKey: apiKey)

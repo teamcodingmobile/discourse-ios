@@ -28,6 +28,12 @@
 		D5717D1F254D845A00A22E3A /* AppDelegate+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5717D1E254D845A00A22E3A /* AppDelegate+Injection.swift */; };
 		D5717D23254D852800A22E3A /* FactoryServices+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5717D22254D852800A22E3A /* FactoryServices+Injection.swift */; };
 		D5717D27254D859E00A22E3A /* DataClientServices+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5717D26254D859E00A22E3A /* DataClientServices+Injection.swift */; };
+		F7CB630D254ED0290043956C /* PostTopicResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CB630C254ED0290043956C /* PostTopicResponse.swift */; };
+		F7CB6311254ED6840043956C /* PostItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CB6310254ED6840043956C /* PostItemFactory.swift */; };
+		F7CB6315254ED6E90043956C /* PostErrorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CB6314254ED6E90043956C /* PostErrorFactory.swift */; };
+		F7CB6319254ED8E00043956C /* PostItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CB6318254ED8E00043956C /* PostItem.swift */; };
+		F7CB631D254ED8EC0043956C /* PostError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CB631C254ED8EC0043956C /* PostError.swift */; };
+		F7CB6321254EDBD30043956C /* PostTopicRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CB6320254EDBD30043956C /* PostTopicRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +77,12 @@
 		D5717D26254D859E00A22E3A /* DataClientServices+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataClientServices+Injection.swift"; sourceTree = "<group>"; };
 		E4789EEBD94747720387FA03 /* Pods_discourseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_discourseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5554A64EFB125220BEEFBC0 /* Pods_discourse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_discourse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7CB630C254ED0290043956C /* PostTopicResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTopicResponse.swift; sourceTree = "<group>"; };
+		F7CB6310254ED6840043956C /* PostItemFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItemFactory.swift; sourceTree = "<group>"; };
+		F7CB6314254ED6E90043956C /* PostErrorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostErrorFactory.swift; sourceTree = "<group>"; };
+		F7CB6318254ED8E00043956C /* PostItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItem.swift; sourceTree = "<group>"; };
+		F7CB631C254ED8EC0043956C /* PostError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostError.swift; sourceTree = "<group>"; };
+		F7CB6320254EDBD30043956C /* PostTopicRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTopicRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +160,8 @@
 			children = (
 				D5189F1C254B45B4002B69AB /* TopicItem.swift */,
 				D5698D8D254D6A44008018AA /* Poster.swift */,
+				F7CB6318254ED8E00043956C /* PostItem.swift */,
+				F7CB631C254ED8EC0043956C /* PostError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -176,6 +190,7 @@
 			children = (
 				D5189F2C254B482D002B69AB /* GetLatestTopicsRequest.swift */,
 				D5189F31254B4893002B69AB /* HttpRequest.swift */,
+				F7CB6320254EDBD30043956C /* PostTopicRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -184,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				D5189F36254B4AFE002B69AB /* GetLatestTopicsResponse.swift */,
+				F7CB630C254ED0290043956C /* PostTopicResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -202,6 +218,8 @@
 			children = (
 				D5698D87254D6817008018AA /* TopicItemFactory.swift */,
 				D5698D9A254D6EFB008018AA /* PosterFactory.swift */,
+				F7CB6310254ED6840043956C /* PostItemFactory.swift */,
+				F7CB6314254ED6E90043956C /* PostErrorFactory.swift */,
 			);
 			path = Factory;
 			sourceTree = "<group>";
@@ -393,12 +411,16 @@
 			files = (
 				D5189EDF254B2E6F002B69AB /* ViewController.swift in Sources */,
 				D5189F2D254B482D002B69AB /* GetLatestTopicsRequest.swift in Sources */,
+				F7CB6319254ED8E00043956C /* PostItem.swift in Sources */,
 				D5189EDB254B2E6F002B69AB /* AppDelegate.swift in Sources */,
 				D5189F37254B4AFE002B69AB /* GetLatestTopicsResponse.swift in Sources */,
 				D5189F3F254B4C25002B69AB /* HttpClient.swift in Sources */,
+				F7CB6315254ED6E90043956C /* PostErrorFactory.swift in Sources */,
 				D5189EDD254B2E6F002B69AB /* SceneDelegate.swift in Sources */,
 				D5698D9B254D6EFB008018AA /* PosterFactory.swift in Sources */,
 				D5698D88254D6817008018AA /* TopicItemFactory.swift in Sources */,
+				F7CB630D254ED0290043956C /* PostTopicResponse.swift in Sources */,
+				F7CB6311254ED6840043956C /* PostItemFactory.swift in Sources */,
 				D5717D27254D859E00A22E3A /* DataClientServices+Injection.swift in Sources */,
 				D5717D23254D852800A22E3A /* FactoryServices+Injection.swift in Sources */,
 				D5189F1D254B45B4002B69AB /* TopicItem.swift in Sources */,
@@ -406,6 +428,8 @@
 				D5717D1F254D845A00A22E3A /* AppDelegate+Injection.swift in Sources */,
 				D5189F32254B4893002B69AB /* HttpRequest.swift in Sources */,
 				D5189F44254B4C34002B69AB /* DataClient.swift in Sources */,
+				F7CB6321254EDBD30043956C /* PostTopicRequest.swift in Sources */,
+				F7CB631D254ED8EC0043956C /* PostError.swift in Sources */,
 				D5189EE5254B2E6F002B69AB /* discourse.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -565,6 +589,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 59VMLQ635K;
 				INFOPLIST_FILE = discourse/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -585,6 +610,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 59VMLQ635K;
 				INFOPLIST_FILE = discourse/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -604,6 +630,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 59VMLQ635K;
 				INFOPLIST_FILE = discourseTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -625,6 +652,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 59VMLQ635K;
 				INFOPLIST_FILE = discourseTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
