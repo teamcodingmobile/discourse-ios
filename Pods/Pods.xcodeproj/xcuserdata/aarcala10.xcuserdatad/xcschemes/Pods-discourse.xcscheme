@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "605DA5D02BB363231E4FD9D2F174C0F1"
-               BuildableName = "Pods-discourse.framework"
+               BuildableName = "Pods_discourse.framework"
                BlueprintName = "Pods-discourse"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
@@ -61,9 +61,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      debugDocumentVersioning = "YES"
-      buildConfiguration = "Release"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      debugDocumentVersioning = "YES">
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
