@@ -67,6 +67,23 @@ class discourseTests: XCTestCase {
 
         wait(for: [expectation], timeout: 10.0)
     }
+    func testGetLogin() throws {
+        let expectation = XCTestExpectation(description: "Get login")
+        
+        let client = Resolver.resolve(DataClient.self)
+        
+        client.getLogin(atUser: "aarcala10") { (login) in
+            XCTAssertNotNil(login)
+            XCTAssertTrue((login as Any) is UserLogin)
+            expectation.fulfill()
+        } onError: { (error) in
+            XCTFail("Request failed")
+        }
+        
+        
+        wait(for: [expectation], timeout: 10.0)
+    }
+    
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.

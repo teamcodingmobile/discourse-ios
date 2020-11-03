@@ -21,6 +21,8 @@ final class HttpClient: DataClient {
     var apiKey: String
     
     @Injected var topicItemFactory: TopicItemFactory
+    @Injected var loginFactory: LoginFactory
+
     
     lazy var session: URLSession = {
         let configuration = URLSessionConfiguration.default
@@ -49,6 +51,13 @@ final class HttpClient: DataClient {
     func createTopic(withTitle title: String, onSuccess success: @escaping () -> (), onError error: ((Error?) -> ())?) {
         send(request: CreateTopicRequest(withTitle: title), onSuccess: { (_) in
             success()
+        }, onError: error)
+
+    func getLogin(atUser username: String, onSuccess success: @escaping (UserLogin) -> (), onError error: ((Error?) -> ())?) {
+        send(request: GetLoginRequest(username: username), onSuccess: { [weak self] response in
+            if self != nil {
+                success(self!.loginFactory.create(from: response!))
+            }
         }, onError: error)
     }
     
@@ -98,4 +107,5 @@ final class HttpClient: DataClient {
         
         task.resume()
     }
+    
 }

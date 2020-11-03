@@ -15,4 +15,6 @@ protocol DataClient {
     func getLatestTopics(atPage page: Int, onSuccess success: @escaping ([TopicItem]) -> (), onError error: ((Error?) -> ())?) -> Void
     
     func createTopic(withTitle title: String, onSuccess success: @escaping () -> (), onError error: ((Error?) -> ())?) -> Void
+
+    func getLogin(atUser username: String, onSuccess success: @escaping(UserLogin) -> (), onError error: ((Error?)-> ())?) -> Void
 }
