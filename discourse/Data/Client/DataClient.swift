@@ -16,5 +16,5 @@ protocol DataClient {
     
     func createTopic(withTitle title: String, onSuccess success: @escaping () -> (), onError error: ((Error?) -> ())?) -> Void
 
-    func getLogin(atUser username: String, onSuccess success: @escaping(UserLogin) -> (), onError error: ((Error?)-> ())?) -> Void
+    func getLogin(withUser username: String, onSuccess success: @escaping(UserLogin) -> (), onError error: ((Error?)-> ())?) -> Void
 }

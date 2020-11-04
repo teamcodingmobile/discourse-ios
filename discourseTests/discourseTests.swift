@@ -72,7 +72,7 @@ class discourseTests: XCTestCase {
         
         let client = Resolver.resolve(DataClient.self)
         
-        client.getLogin(atUser: "aarcala10") { (login) in
+        client.getLogin(withUser: "aarcala10") { (login) in
             XCTAssertNotNil(login)
             XCTAssertTrue((login as Any) is UserLogin)
             expectation.fulfill()

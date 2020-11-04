@@ -21,7 +21,6 @@ final class HttpClient: DataClient {
     var apiKey: String
     
     @Injected var topicItemFactory: TopicItemFactory
-    @Injected var loginFactory: LoginFactory
 
     
     lazy var session: URLSession = {
@@ -53,10 +52,10 @@ final class HttpClient: DataClient {
             success()
         }, onError: error)
 
-    func getLogin(atUser username: String, onSuccess success: @escaping (UserLogin) -> (), onError error: ((Error?) -> ())?) {
+    func getLogin(withUser username: String, onSuccess success: @escaping (UserLogin) -> (), onError error: ((Error?) -> ())?) {
         send(request: GetLoginRequest(username: username), onSuccess: { [weak self] response in
             if self != nil {
-                success(self!.loginFactory.create(from: response!))
+                success(response!.user)
             }
         }, onError: error)
     }

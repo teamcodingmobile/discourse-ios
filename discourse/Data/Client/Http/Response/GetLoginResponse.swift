@@ -10,3 +10,9 @@ struct GetLoginResponse: Codable{
     
     var user: UserLogin
 }
+
+struct UserLogin: Codable{
+    let id: Int
+    let username: String
+    let name: String
+}

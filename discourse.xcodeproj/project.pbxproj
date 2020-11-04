@@ -9,10 +9,8 @@
 /* Begin PBXBuildFile section */
 		3E712CB9EA4024132F745C7B /* Pods_discourseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4789EEBD94747720387FA03 /* Pods_discourseTests.framework */; };
 		6185EED3A8D66C6608C39B44 /* Pods_discourse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5554A64EFB125220BEEFBC0 /* Pods_discourse.framework */; };
-		91D2237F2551C8E2001EDA36 /* LoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D2237E2551C8E2001EDA36 /* LoginFactory.swift */; };
 		91D223832551C90D001EDA36 /* GetLoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D223822551C90D001EDA36 /* GetLoginResponse.swift */; };
 		91D223872551C94A001EDA36 /* GetLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D223862551C94A001EDA36 /* GetLoginRequest.swift */; };
-		91D2238B2551C9D9001EDA36 /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D2238A2551C9D9001EDA36 /* UserLogin.swift */; };
 		D5189EDB254B2E6F002B69AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5189EDA254B2E6F002B69AB /* AppDelegate.swift */; };
 		D5189EDD254B2E6F002B69AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5189EDC254B2E6F002B69AB /* SceneDelegate.swift */; };
 		D5189EDF254B2E6F002B69AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5189EDE254B2E6F002B69AB /* ViewController.swift */; };
@@ -59,10 +57,8 @@
 		5E9EC0C1CDD2F0810CCCFBF4 /* Pods-discourse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-discourse.debug.xcconfig"; path = "Target Support Files/Pods-discourse/Pods-discourse.debug.xcconfig"; sourceTree = "<group>"; };
 		73443131C8135BADDB9CE30C /* Pods-discourse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-discourse.release.xcconfig"; path = "Target Support Files/Pods-discourse/Pods-discourse.release.xcconfig"; sourceTree = "<group>"; };
 		7CFB6EFCF9B29B31AF27F472 /* Pods-discourseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-discourseTests.release.xcconfig"; path = "Target Support Files/Pods-discourseTests/Pods-discourseTests.release.xcconfig"; sourceTree = "<group>"; };
-		91D2237E2551C8E2001EDA36 /* LoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFactory.swift; sourceTree = "<group>"; };
 		91D223822551C90D001EDA36 /* GetLoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLoginResponse.swift; sourceTree = "<group>"; };
 		91D223862551C94A001EDA36 /* GetLoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLoginRequest.swift; sourceTree = "<group>"; };
-		91D2238A2551C9D9001EDA36 /* UserLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
 		D5189EDA254B2E6F002B69AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5189EDC254B2E6F002B69AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D5189EDE254B2E6F002B69AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -179,7 +175,6 @@
 			children = (
 				D5189F1C254B45B4002B69AB /* TopicItem.swift */,
 				D5698D8D254D6A44008018AA /* Poster.swift */,
-				91D2238A2551C9D9001EDA36 /* UserLogin.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -239,7 +234,6 @@
 			children = (
 				D5698D87254D6817008018AA /* TopicItemFactory.swift */,
 				D5698D9A254D6EFB008018AA /* PosterFactory.swift */,
-				91D2237E2551C8E2001EDA36 /* LoginFactory.swift */,
 			);
 			path = Factory;
 			sourceTree = "<group>";
@@ -482,12 +476,8 @@
 				D5189EDB254B2E6F002B69AB /* AppDelegate.swift in Sources */,
 				D5189F37254B4AFE002B69AB /* GetLatestTopicsResponse.swift in Sources */,
 				D5189F3F254B4C25002B69AB /* HttpClient.swift in Sources */,
-<<<<<<< HEAD
 				D58730912556FBF900FE6FF3 /* CreateTopicRequest.swift in Sources */,
-=======
-				91D2237F2551C8E2001EDA36 /* LoginFactory.swift in Sources */,
 				91D2238B2551C9D9001EDA36 /* UserLogin.swift in Sources */,
->>>>>>> Login´s call done
 				D5189EDD254B2E6F002B69AB /* SceneDelegate.swift in Sources */,
 				D593983A2555D580004AA116 /* Coordinator.swift in Sources */,
 				D59398392555D580004AA116 /* AppCoordinator.swift in Sources */,
