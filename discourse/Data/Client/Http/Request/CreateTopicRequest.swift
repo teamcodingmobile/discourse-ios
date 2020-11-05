@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct PostTopicRequest: HttpRequest {
-    typealias Response = PostTopicSuccessResponse
+struct CreateTopicRequest: HttpRequest {
+    typealias Response = CreateTopicResponse
+    
     var title: String
     
     init(withTitle title: String) {
@@ -24,7 +25,10 @@ struct PostTopicRequest: HttpRequest {
     }
     
     var body: [String : Any] {
-        return ["title": title, "raw": title]
+        return [
+            "title": title,
+            "raw": title
+        ]
     }
     
 }

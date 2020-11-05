@@ -9,8 +9,9 @@ import Foundation
 import UIKit
 import Resolver
 
-enum HttpClientError: Error {
-    case statusCode(Int)
+enum HttpClientError: Error, Equatable {
+    case unauthorized
+    case serverError
 }
 
 final class HttpClient: DataClient {
@@ -20,7 +21,6 @@ final class HttpClient: DataClient {
     var apiKey: String
     
     @Injected var topicItemFactory: TopicItemFactory
-    @Injected var postItemFactory: PostItemFactory
     
     lazy var session: URLSession = {
         let configuration = URLSessionConfiguration.default
@@ -46,14 +46,10 @@ final class HttpClient: DataClient {
         }, onError: error)
     }
     
-    func postTopic(withTitle title: String, onSuccess success: @escaping (PostItem) -> (), onError error: ((Error?) -> ())?) {
-        send(request: PostTopicRequest(withTitle: title), onSuccess: { [weak self] response in
-        if self != nil {
-            if let response = response {
-                success(self!.postItemFactory.create(from: response))
-            }
-        }
-    }, onError: error)
+    func createTopic(withTitle title: String, onSuccess success: @escaping () -> (), onError error: ((Error?) -> ())?) {
+        send(request: CreateTopicRequest(withTitle: title), onSuccess: { (_) in
+            success()
+        }, onError: error)
     }
     
     
@@ -61,28 +57,42 @@ final class HttpClient: DataClient {
         let urlRequest = request.build(withBaseUrl: baseUrl, usingApiKey: apiKey)
         
         let task = session.dataTask(with: urlRequest) { data, response, error in
-            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode >= 400 && httpResponse.statusCode < 500 {
+            guard let httpResponse = response as? HTTPURLResponse else {
+                fatalError("Unable to cast response to \(HTTPURLResponse.self)")
+            }
+            
+            let statusCode = httpResponse.statusCode
+            
+            if statusCode >= 500 {
                 DispatchQueue.main.async {
-                    failure?(HttpClientError.statusCode(httpResponse.statusCode))
+                    failure?(HttpClientError.serverError)
                 }
+                
                 return
             }
             
-            if let data = data, data.count > 0 {
-                do {
-                    let model = try JSONDecoder().decode(T.Response.self, from: data)
-                    DispatchQueue.main.async {
-                        success(model)
-                    }
-                } catch {
-                    DispatchQueue.main.async {
-                        failure?(error)
-                    }
-                }
-            } else {
+            if statusCode == 403 {
                 DispatchQueue.main.async {
-                    success(nil)
+                    failure?(HttpClientError.unauthorized)
                 }
+                
+                return
+            }
+            
+            if statusCode >= 400 {
+                let errors = try? JSONDecoder().decode(ErrorResponse.self, from: data!).errors
+                
+                DispatchQueue.main.async {
+                    failure?(DataError.invalidData(errors: errors ?? []))
+                }
+                
+                return
+            }
+            
+            let model = try? JSONDecoder().decode(T.Response.self, from: data!)
+            
+            DispatchQueue.main.async {
+                success(model)
             }
         }
         

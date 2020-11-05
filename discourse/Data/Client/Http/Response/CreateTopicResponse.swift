@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct PostTopicSuccessResponse: Codable {
+struct CreateTopicResponse: Codable {
     var id: Int
     var name: String?
     var username: String
