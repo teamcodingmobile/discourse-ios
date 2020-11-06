@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "1E6F7464-F590-400F-AD3E-055662B205F2"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5ACBB0EC-03FD-4675-BE7D-6B4AD8987647"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "discourse/Data/Client/Http/HttpClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "send(request:onSuccess:onError:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5ACBB0EC-03FD-4675-BE7D-6B4AD8987647 - b089a6054fe39483"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "discourse.HttpClient.(send in _C6FFE9D3345CE899065BCF77EEC878CC)&lt;A where A: discourse.HttpRequest&gt;(request: A, onSuccess: (Swift.Optional&lt;A.Response&gt;) -&gt; (), onError: Swift.Optional&lt;(Swift.Optional&lt;Swift.Error&gt;) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "discourse"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gerard/Repositorios/KeepCoding/Proyecto%20final/discourse-ios/discourse/discourse/Data/Client/Http/HttpClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "766">
+               </Location>
+               <Location
+                  uuid = "5ACBB0EC-03FD-4675-BE7D-6B4AD8987647 - 14e70147fa6e2c1a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in discourse.HttpClient.(send in _C6FFE9D3345CE899065BCF77EEC878CC)&lt;A where A: discourse.HttpRequest&gt;(request: A, onSuccess: (Swift.Optional&lt;A.Response&gt;) -&gt; (), onError: Swift.Optional&lt;(Swift.Optional&lt;Swift.Error&gt;) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "discourse"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gerard/Repositorios/KeepCoding/Proyecto%20final/discourse-ios/discourse/discourse/Data/Client/Http/HttpClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "591">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4C755399-5E38-4F6A-BCE8-4F9E6698F640"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "discourseTests/discourseTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "83CDA20E-0EA6-4CFE-8741-68046AFFED90"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "discourse/Data/Client/Http/HttpClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "send(request:onSuccess:onError:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "83CDA20E-0EA6-4CFE-8741-68046AFFED90 - 14e70147fa6e205b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in discourse.HttpClient.(send in _C6FFE9D3345CE899065BCF77EEC878CC)&lt;A where A: discourse.HttpRequest&gt;(request: A, onSuccess: (Swift.Optional&lt;A.Response&gt;) -&gt; (), onError: Swift.Optional&lt;(Swift.Optional&lt;Swift.Error&gt;) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "discourse"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gerard/Repositorios/KeepCoding/Proyecto%20final/discourse-ios/discourse/discourse/Data/Client/Http/HttpClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "94"
+                  endingLineNumber = "94"
+                  offsetFromSymbolStart = "3302">
+               </Location>
+               <Location
+                  uuid = "83CDA20E-0EA6-4CFE-8741-68046AFFED90 - 2ad7ea2041c151b8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 () -&gt; () in closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in discourse.HttpClient.(send in _C6FFE9D3345CE899065BCF77EEC878CC)&lt;A where A: discourse.HttpRequest&gt;(request: A, onSuccess: (Swift.Optional&lt;A.Response&gt;) -&gt; (), onError: Swift.Optional&lt;(Swift.Optional&lt;Swift.Error&gt;) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "discourse"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gerard/Repositorios/KeepCoding/Proyecto%20final/discourse-ios/discourse/discourse/Data/Client/Http/HttpClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "109">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

@@ -28,6 +28,13 @@
 		D5717D1F254D845A00A22E3A /* AppDelegate+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5717D1E254D845A00A22E3A /* AppDelegate+Injection.swift */; };
 		D5717D23254D852800A22E3A /* FactoryServices+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5717D22254D852800A22E3A /* FactoryServices+Injection.swift */; };
 		D5717D27254D859E00A22E3A /* DataClientServices+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5717D26254D859E00A22E3A /* DataClientServices+Injection.swift */; };
+		D59398382555D580004AA116 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D593982F2555D580004AA116 /* AuthenticationCoordinator.swift */; };
+		D59398392555D580004AA116 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59398302555D580004AA116 /* AppCoordinator.swift */; };
+		D593983A2555D580004AA116 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59398312555D580004AA116 /* Coordinator.swift */; };
+		D593983B2555D580004AA116 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D59398352555D580004AA116 /* MainViewController.xib */; };
+		D593983C2555D580004AA116 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59398362555D580004AA116 /* MainViewController.swift */; };
+		D593983D2555D580004AA116 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59398372555D580004AA116 /* MainViewModel.swift */; };
+		D5BE651825560A8B000BBF66 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5BE651A25560A8B000BBF66 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +57,6 @@
 		D5189EDE254B2E6F002B69AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D5189EE4254B2E6F002B69AB /* discourse.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = discourse.xcdatamodel; sourceTree = "<group>"; };
 		D5189EE6254B2E73002B69AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D5189EE9254B2E73002B69AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D5189EEB254B2E73002B69AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5189F1C254B45B4002B69AB /* TopicItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicItem.swift; sourceTree = "<group>"; };
 		D5189F2C254B482D002B69AB /* GetLatestTopicsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLatestTopicsRequest.swift; sourceTree = "<group>"; };
@@ -69,6 +75,16 @@
 		D5717D1E254D845A00A22E3A /* AppDelegate+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Injection.swift"; sourceTree = "<group>"; };
 		D5717D22254D852800A22E3A /* FactoryServices+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FactoryServices+Injection.swift"; sourceTree = "<group>"; };
 		D5717D26254D859E00A22E3A /* DataClientServices+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataClientServices+Injection.swift"; sourceTree = "<group>"; };
+		D593982F2555D580004AA116 /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
+		D59398302555D580004AA116 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		D59398312555D580004AA116 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		D59398352555D580004AA116 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		D59398362555D580004AA116 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		D59398372555D580004AA116 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		D5BE64FE255608EE000BBF66 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D5BE64FF2556091B000BBF66 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = es; path = es.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D5BE651925560A8B000BBF66 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D5BE651D25560A8F000BBF66 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E4789EEBD94747720387FA03 /* Pods_discourseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_discourseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5554A64EFB125220BEEFBC0 /* Pods_discourse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_discourse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -120,6 +136,8 @@
 		D5189ED9254B2E6F002B69AB /* discourse */ = {
 			isa = PBXGroup;
 			children = (
+				D5BE651A25560A8B000BBF66 /* Localizable.strings */,
+				D593982D2555D580004AA116 /* UI */,
 				D5717D1D254D842800A22E3A /* DependencyInjection */,
 				D5189F1A254B4576002B69AB /* Data */,
 				D5189EDA254B2E6F002B69AB /* AppDelegate.swift */,
@@ -216,6 +234,51 @@
 			path = DependencyInjection;
 			sourceTree = "<group>";
 		};
+		D593982D2555D580004AA116 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D593982E2555D580004AA116 /* Coordinators */,
+				D59398322555D580004AA116 /* Screens */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		D593982E2555D580004AA116 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				D593982F2555D580004AA116 /* AuthenticationCoordinator.swift */,
+				D59398302555D580004AA116 /* AppCoordinator.swift */,
+				D59398312555D580004AA116 /* Coordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		D59398322555D580004AA116 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				D59398332555D580004AA116 /* Authentication */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		D59398332555D580004AA116 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				D59398342555D580004AA116 /* Main */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		D59398342555D580004AA116 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				D59398352555D580004AA116 /* MainViewController.xib */,
+				D59398362555D580004AA116 /* MainViewController.swift */,
+				D59398372555D580004AA116 /* MainViewModel.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		E9F997E0B0E2226A710054FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,7 +353,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				es,
 			);
 			mainGroup = D5189ECE254B2E6F002B69AB;
 			productRefGroup = D5189ECE254B2E6F002B69AB;
@@ -308,7 +371,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5BE651825560A8B000BBF66 /* Localizable.strings in Resources */,
 				D5189EEA254B2E73002B69AB /* LaunchScreen.storyboard in Resources */,
+				D593983B2555D580004AA116 /* MainViewController.xib in Resources */,
 				D5189EE7254B2E73002B69AB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,16 +462,21 @@
 				D5189F37254B4AFE002B69AB /* GetLatestTopicsResponse.swift in Sources */,
 				D5189F3F254B4C25002B69AB /* HttpClient.swift in Sources */,
 				D5189EDD254B2E6F002B69AB /* SceneDelegate.swift in Sources */,
+				D593983A2555D580004AA116 /* Coordinator.swift in Sources */,
+				D59398392555D580004AA116 /* AppCoordinator.swift in Sources */,
 				D5698D9B254D6EFB008018AA /* PosterFactory.swift in Sources */,
 				D5698D88254D6817008018AA /* TopicItemFactory.swift in Sources */,
 				D5717D27254D859E00A22E3A /* DataClientServices+Injection.swift in Sources */,
 				D5717D23254D852800A22E3A /* FactoryServices+Injection.swift in Sources */,
 				D5189F1D254B45B4002B69AB /* TopicItem.swift in Sources */,
 				D5698D8E254D6A44008018AA /* Poster.swift in Sources */,
+				D593983D2555D580004AA116 /* MainViewModel.swift in Sources */,
 				D5717D1F254D845A00A22E3A /* AppDelegate+Injection.swift in Sources */,
 				D5189F32254B4893002B69AB /* HttpRequest.swift in Sources */,
 				D5189F44254B4C34002B69AB /* DataClient.swift in Sources */,
 				D5189EE5254B2E6F002B69AB /* discourse.xcdatamodeld in Sources */,
+				D59398382555D580004AA116 /* AuthenticationCoordinator.swift in Sources */,
+				D593983C2555D580004AA116 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,9 +502,19 @@
 		D5189EE8254B2E73002B69AB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D5189EE9254B2E73002B69AB /* Base */,
+				D5BE64FE255608EE000BBF66 /* en */,
+				D5BE64FF2556091B000BBF66 /* es */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D5BE651A25560A8B000BBF66 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D5BE651925560A8B000BBF66 /* en */,
+				D5BE651D25560A8F000BBF66 /* es */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -444,6 +524,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -505,6 +586,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
