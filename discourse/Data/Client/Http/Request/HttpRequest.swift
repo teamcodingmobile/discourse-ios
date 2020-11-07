@@ -60,6 +60,7 @@ extension HttpRequest {
             urlRequest.httpBody = jsonData
         }
         
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.addValue(apiKey, forHTTPHeaderField: "Api-Key")
         urlRequest.addValue("system", forHTTPHeaderField: "Api-Username")
         

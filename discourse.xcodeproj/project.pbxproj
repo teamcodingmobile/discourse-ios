@@ -28,6 +28,9 @@
 		D5717D1F254D845A00A22E3A /* AppDelegate+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5717D1E254D845A00A22E3A /* AppDelegate+Injection.swift */; };
 		D5717D23254D852800A22E3A /* FactoryServices+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5717D22254D852800A22E3A /* FactoryServices+Injection.swift */; };
 		D5717D27254D859E00A22E3A /* DataClientServices+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5717D26254D859E00A22E3A /* DataClientServices+Injection.swift */; };
+		D587308D2556FBF100FE6FF3 /* CreateTopicResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D587308C2556FBF100FE6FF3 /* CreateTopicResponse.swift */; };
+		D58730912556FBF900FE6FF3 /* CreateTopicRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58730902556FBF900FE6FF3 /* CreateTopicRequest.swift */; };
+		D587309B2556FC8E00FE6FF3 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D587309A2556FC8E00FE6FF3 /* ErrorResponse.swift */; };
 		D59398382555D580004AA116 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D593982F2555D580004AA116 /* AuthenticationCoordinator.swift */; };
 		D59398392555D580004AA116 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59398302555D580004AA116 /* AppCoordinator.swift */; };
 		D593983A2555D580004AA116 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59398312555D580004AA116 /* Coordinator.swift */; };
@@ -64,7 +67,7 @@
 		D5189F36254B4AFE002B69AB /* GetLatestTopicsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLatestTopicsResponse.swift; sourceTree = "<group>"; };
 		D5189F3E254B4C25002B69AB /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		D5189F43254B4C34002B69AB /* DataClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataClient.swift; sourceTree = "<group>"; };
-		D51BA451254D639E0092C020 /* discourseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = discourseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D51BA451254D639E0092C020 /* discourseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = discourseTests.xctest; path = "/Users/gerard/Repositorios/KeepCoding/Proyecto final/discourse-ios/discourse/build/Debug-iphoneos/discourseTests.xctest"; sourceTree = "<absolute>"; };
 		D51BA453254D639E0092C020 /* discourseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = discourseTests.swift; sourceTree = "<group>"; };
 		D51BA455254D639E0092C020 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5698D85254D63D1008018AA /* discourse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = discourse.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +78,9 @@
 		D5717D1E254D845A00A22E3A /* AppDelegate+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Injection.swift"; sourceTree = "<group>"; };
 		D5717D22254D852800A22E3A /* FactoryServices+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FactoryServices+Injection.swift"; sourceTree = "<group>"; };
 		D5717D26254D859E00A22E3A /* DataClientServices+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataClientServices+Injection.swift"; sourceTree = "<group>"; };
+		D587308C2556FBF100FE6FF3 /* CreateTopicResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTopicResponse.swift; sourceTree = "<group>"; };
+		D58730902556FBF900FE6FF3 /* CreateTopicRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTopicRequest.swift; sourceTree = "<group>"; };
+		D587309A2556FC8E00FE6FF3 /* ErrorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		D593982F2555D580004AA116 /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
 		D59398302555D580004AA116 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		D59398312555D580004AA116 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -125,7 +131,6 @@
 			children = (
 				D5717D0F254D7EFD00A22E3A /* Podfile */,
 				D5189ED9254B2E6F002B69AB /* discourse */,
-				D51BA451254D639E0092C020 /* discourseTests.xctest */,
 				D51BA452254D639E0092C020 /* discourseTests */,
 				D5698D85254D63D1008018AA /* discourse.app */,
 				E9F997E0B0E2226A710054FE /* Frameworks */,
@@ -192,6 +197,7 @@
 		D5189F2A254B47ED002B69AB /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				D58730902556FBF900FE6FF3 /* CreateTopicRequest.swift */,
 				D5189F2C254B482D002B69AB /* GetLatestTopicsRequest.swift */,
 				D5189F31254B4893002B69AB /* HttpRequest.swift */,
 			);
@@ -201,6 +207,8 @@
 		D5189F2B254B47F7002B69AB /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				D587309A2556FC8E00FE6FF3 /* ErrorResponse.swift */,
+				D587308C2556FBF100FE6FF3 /* CreateTopicResponse.swift */,
 				D5189F36254B4AFE002B69AB /* GetLatestTopicsResponse.swift */,
 			);
 			path = Response;
@@ -456,11 +464,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D587308D2556FBF100FE6FF3 /* CreateTopicResponse.swift in Sources */,
 				D5189EDF254B2E6F002B69AB /* ViewController.swift in Sources */,
 				D5189F2D254B482D002B69AB /* GetLatestTopicsRequest.swift in Sources */,
 				D5189EDB254B2E6F002B69AB /* AppDelegate.swift in Sources */,
 				D5189F37254B4AFE002B69AB /* GetLatestTopicsResponse.swift in Sources */,
 				D5189F3F254B4C25002B69AB /* HttpClient.swift in Sources */,
+				D58730912556FBF900FE6FF3 /* CreateTopicRequest.swift in Sources */,
 				D5189EDD254B2E6F002B69AB /* SceneDelegate.swift in Sources */,
 				D593983A2555D580004AA116 /* Coordinator.swift in Sources */,
 				D59398392555D580004AA116 /* AppCoordinator.swift in Sources */,
@@ -469,6 +479,7 @@
 				D5717D27254D859E00A22E3A /* DataClientServices+Injection.swift in Sources */,
 				D5717D23254D852800A22E3A /* FactoryServices+Injection.swift in Sources */,
 				D5189F1D254B45B4002B69AB /* TopicItem.swift in Sources */,
+				D587309B2556FC8E00FE6FF3 /* ErrorResponse.swift in Sources */,
 				D5698D8E254D6A44008018AA /* Poster.swift in Sources */,
 				D593983D2555D580004AA116 /* MainViewModel.swift in Sources */,
 				D5717D1F254D845A00A22E3A /* AppDelegate+Injection.swift in Sources */,
@@ -647,6 +658,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 59VMLQ635K;
 				INFOPLIST_FILE = discourse/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -667,6 +679,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 59VMLQ635K;
 				INFOPLIST_FILE = discourse/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -686,6 +699,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 59VMLQ635K;
 				INFOPLIST_FILE = discourseTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -707,6 +721,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 59VMLQ635K;
 				INFOPLIST_FILE = discourseTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
