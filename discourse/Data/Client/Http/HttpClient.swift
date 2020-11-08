@@ -26,7 +26,6 @@ final class HttpClient: DataClient {
     @Injected var authService: AuthService
     
     @Injected var topicItemFactory: TopicItemFactory
-
     
     lazy var session: URLSession = {
         let configuration = URLSessionConfiguration.default
@@ -70,6 +69,11 @@ final class HttpClient: DataClient {
     func registerUser(withData data: RegisterUserForm, onSuccess success: @escaping () -> (), onError error: ((Error?) -> ())?) {
         send(request: RegisterUserRequest(data: data), onSuccess: { _ in
             success()
+    func getSearch(withWord word: String, onSuccess success: @escaping (Search) -> (), onError error: ((Error?) -> ())?) ->Void {
+        send(request: GetSearchRequest(withWord: word), onSuccess: { [weak self ] response in
+            if self != nil {
+                self!.search = [response?.topics, response?.users, response?.posts]
+            }
         }, onError: error)
     }
     
