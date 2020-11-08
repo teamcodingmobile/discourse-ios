@@ -16,6 +16,7 @@ enum HttpClientError: Error, Equatable {
 
 final class HttpClient: DataClient {
     
+    
     var baseUrl: URL
     
     var apiKey: String
@@ -51,6 +52,7 @@ final class HttpClient: DataClient {
         send(request: CreateTopicRequest(withTitle: title), onSuccess: { (_) in
             success()
         }, onError: error)
+    }
 
     func getLogin(withUser username: String, onSuccess success: @escaping (UserLogin) -> (), onError error: ((Error?) -> ())?) {
         send(request: GetLoginRequest(username: username), onSuccess: { [weak self] response in
