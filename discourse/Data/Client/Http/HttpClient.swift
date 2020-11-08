@@ -21,6 +21,8 @@ final class HttpClient: DataClient {
     
     var apiKey: String
     
+    let authService = AuthService()
+    
     @Injected var topicItemFactory: TopicItemFactory
 
     
@@ -58,6 +60,7 @@ final class HttpClient: DataClient {
         send(request: GetLoginRequest(username: username), onSuccess: { [weak self] response in
             if self != nil {
                 success(response!.user)
+                self?.authService.logIn(user: username)
             }
         }, onError: error)
     }

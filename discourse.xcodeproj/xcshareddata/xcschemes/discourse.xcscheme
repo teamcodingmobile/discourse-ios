@@ -37,6 +37,11 @@
                BlueprintName = "discourseTests"
                ReferencedContainer = "container:discourse.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "discourseTests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>
