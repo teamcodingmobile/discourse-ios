@@ -9,14 +9,14 @@ import Foundation
 
 struct AuthService {
     
-    fileprivate static let log = UserDefaults.standard
+    let log = UserDefaults.standard
     
     func logIn(user: String){
-        AuthService.log.setValue(user, forKey: "log")
+        log.setValue(user, forKey: "log")
     }
     
     func logOut(){
-        AuthService.log.removeObject(forKey: "log")
+        log.removeObject(forKey: "log")
     }
     
 }

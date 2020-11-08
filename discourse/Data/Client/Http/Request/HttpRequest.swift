@@ -39,6 +39,7 @@ extension HttpRequest {
     func build(withBaseUrl baseUrl: URL, usingApiKey apiKey: String) -> URLRequest {
         let url = baseUrl.appendingPathComponent(path)
         
+        
         guard var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
             fatalError("Unable to create URL components")
         }
@@ -60,9 +61,12 @@ extension HttpRequest {
             urlRequest.httpBody = jsonData
         }
         
+        let authService = AuthService()
+        let userLoged = authService.log.value(forKey: "user") as? String ?? "system"
+        
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.addValue(apiKey, forHTTPHeaderField: "Api-Key")
-        urlRequest.addValue("system", forHTTPHeaderField: "Api-Username")
+        urlRequest.addValue(userLoged, forHTTPHeaderField: "Api-Username")
         
         return urlRequest
     }
