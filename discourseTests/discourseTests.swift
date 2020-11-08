@@ -67,6 +67,23 @@ class discourseTests: XCTestCase {
 
         wait(for: [expectation], timeout: 10.0)
     }
+    
+    func testGetSearch() throws {
+        let expectation = XCTestExpectation(description: "Search")
+        let client = Resolver.resolve(DataClient.self)
+        
+        client.getSearch(withWord: "prueba") { (search) in
+            XCTAssertNotNil(search)
+            XCTAssertTrue((search as Any) is Search)
+            expectation.fulfill()
+            
+        }onError: { (_) in
+            XCTFail("Request failed")
+        }
+
+        wait(for: [expectation], timeout: 10.0)
+        
+    }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.

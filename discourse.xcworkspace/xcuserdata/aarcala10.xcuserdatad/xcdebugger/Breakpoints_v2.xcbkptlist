@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "ACAD592B-64EA-4E00-BEDE-ED0F2189E9F2"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D3463C14-0804-4775-8D60-AAEDE51D3347"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "discourse/Data/Client/Http/Response/GetSearchResponse.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "GetSearchResponse"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "D3463C14-0804-4775-8D60-AAEDE51D3347 - 490ad3928efd838c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "discourse.GetSearchResponse.init() -&gt; discourse.GetSearchResponse"
+                  moduleName = "discourse"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aarcala10/Desktop/ProyectoFinal/discourse-ios/discourse/Data/Client/Http/Response/GetSearchResponse.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "31">
+               </Location>
+               <Location
+                  uuid = "D3463C14-0804-4775-8D60-AAEDE51D3347 - 7f51fcfa9ab389fe"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "discourse.GetSearchResponse.init(from: Swift.Decoder) throws -&gt; discourse.GetSearchResponse"
+                  moduleName = "discourse"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aarcala10/Desktop/ProyectoFinal/discourse-ios/discourse/Data/Client/Http/Response/GetSearchResponse.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "115">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A402517E-4283-400F-8452-67EFD0F67D28"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "discourse/Data/Client/Http/Response/GetLatestTopicsResponse.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "GetLatestTopicsResponseUser"
+            landmarkType = "14">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
