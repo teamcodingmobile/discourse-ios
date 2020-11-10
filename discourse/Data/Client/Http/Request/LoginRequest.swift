@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct GetLoginRequest: HttpRequest {
+struct LoginRequest: HttpRequest {
     
-    typealias Response = GetLoginResponse
+    typealias Response = LoginResponse
     var user: String
     
     init(username: String) {

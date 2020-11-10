@@ -67,14 +67,12 @@ class discourseTests: XCTestCase {
 
         wait(for: [expectation], timeout: 10.0)
     }
-    func testGetLogin() throws {
+    func testLogin() throws {
         let expectation = XCTestExpectation(description: "Get login")
         
         let client = Resolver.resolve(DataClient.self)
         
-        client.getLogin(withUser: "aarcala10") { (login) in
-            XCTAssertNotNil(login)
-            XCTAssertTrue((login as Any) is UserLogin)
+        client.login(withUser: "aarcala10") {
             expectation.fulfill()
         } onError: { (error) in
             XCTFail("Request failed")

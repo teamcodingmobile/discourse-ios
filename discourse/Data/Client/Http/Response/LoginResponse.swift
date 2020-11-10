@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct GetLoginResponse: Codable{
+struct LoginResponse: Codable{
     
     var user: UserLogin
 }

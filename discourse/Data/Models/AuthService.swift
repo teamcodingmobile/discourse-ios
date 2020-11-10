@@ -7,16 +7,35 @@
 
 import Foundation
 
-struct AuthService {
+protocol AuthServicesProtocol{
+    func logIn(user: String)
+    func logOut()
+}
+
+class AuthService: AuthServicesProtocol{
     
-    let log = UserDefaults.standard
+    private let log = UserDefaults.standard
+    
+    var userLogged = "system"
+    var isLogged: Bool
+    
+    init(){
+        if (log.value(forKey: "log") != nil){
+            isLogged = true
+        }else {
+            isLogged = false
+        }
+    }
     
     func logIn(user: String){
         log.setValue(user, forKey: "log")
+        userLogged = log.value(forKey: "log") as! String
+        isLogged = true
     }
     
     func logOut(){
         log.removeObject(forKey: "log")
+        isLogged = false
     }
     
 }

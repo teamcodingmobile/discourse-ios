@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Resolver
 
 enum Method: String {
     case GET
@@ -24,6 +25,7 @@ protocol HttpRequest {
 }
 
 extension HttpRequest {
+    
     var parameters: [String: String] {
         return [:]
     }
@@ -36,7 +38,7 @@ extension HttpRequest {
         return [:]
     }
     
-    func build(withBaseUrl baseUrl: URL, usingApiKey apiKey: String) -> URLRequest {
+    func build(withBaseUrl baseUrl: URL, usingApiKey apiKey: String, usingApiUsername apiUsername: String) -> URLRequest {
         let url = baseUrl.appendingPathComponent(path)
         
         
@@ -61,12 +63,9 @@ extension HttpRequest {
             urlRequest.httpBody = jsonData
         }
         
-        let authService = AuthService()
-        let userLoged = authService.log.value(forKey: "user") as? String ?? "system"
-        
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.addValue(apiKey, forHTTPHeaderField: "Api-Key")
-        urlRequest.addValue(userLoged, forHTTPHeaderField: "Api-Username")
+        urlRequest.addValue(apiUsername, forHTTPHeaderField: "Api-Username")
         
         return urlRequest
     }
