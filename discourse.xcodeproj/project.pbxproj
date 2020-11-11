@@ -15,6 +15,9 @@
 		91130AA0255851A700D72EBD /* GetSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91130A9F255851A700D72EBD /* GetSearchResponse.swift */; };
 		91130AA0255851A700D72EBD /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91130A9F255851A700D72EBD /* SearchResponse.swift */; };
 		91130AAC255855FB00D72EBD /* GetSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91130AAB255855FB00D72EBD /* GetSearchRequest.swift */; };
+		91733D4B255C5B9600239562 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91733D4A255C5B9600239562 /* LoginViewModel.swift */; };
+		91733D4F255C5BBE00239562 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91733D4E255C5BBE00239562 /* LoginViewController.swift */; };
+		91733D53255C5BFC00239562 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91733D52255C5BFC00239562 /* LoginViewController.xib */; };
 		9188EAF6255C0E6800550B53 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9188EAF5255C0E6800550B53 /* Post.swift */; };
 		D5189EDB254B2E6F002B69AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5189EDA254B2E6F002B69AB /* AppDelegate.swift */; };
 		D5189EDD254B2E6F002B69AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5189EDC254B2E6F002B69AB /* SceneDelegate.swift */; };
@@ -96,6 +99,9 @@
 		91130A9225584AD900D72EBD /* discourseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = discourseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		91130A9F255851A700D72EBD /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		91130AAB255855FB00D72EBD /* GetSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSearchRequest.swift; sourceTree = "<group>"; };
+		91733D4A255C5B9600239562 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		91733D4E255C5BBE00239562 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		91733D52255C5BFC00239562 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		9188EAF5255C0E6800550B53 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		D5189EDA254B2E6F002B69AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5189EDC254B2E6F002B69AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +191,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		91733D47255C5B2F00239562 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				91733D4A255C5B9600239562 /* LoginViewModel.swift */,
+				91733D4E255C5BBE00239562 /* LoginViewController.swift */,
+				91733D52255C5BFC00239562 /* LoginViewController.xib */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		AC528053282ED8802B675538 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,13 +307,9 @@
 				D587308C2556FBF100FE6FF3 /* CreateTopicResponse.swift */,
 				D5189F36254B4AFE002B69AB /* GetLatestTopicsResponse.swift */,
 				91D223822551C90D001EDA36 /* LoginResponse.swift */,
-<<<<<<< HEAD
 				D519BE9325571CF6007E3D64 /* RegisterUserResponse.swift */,
 				D55AFB53255EEC0700AFEE21 /* RecoverPasswordResponse.swift */,
-				91130A9F255851A700D72EBD /* GetSearchResponse.swift */,
-=======
 				91130A9F255851A700D72EBD /* SearchResponse.swift */,
->>>>>>> Changes done
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -388,6 +400,7 @@
 			children = (
 				D55AFB3D255EE7D300AFEE21 /* PasswordRecovery */,
 				D5AEEC612556FE1400723515 /* Registration */,
+				91733D47255C5B2F00239562 /* Login */,
 				D59398342555D580004AA116 /* Main */,
 			);
 			path = Authentication;
@@ -562,6 +575,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91733D53255C5BFC00239562 /* LoginViewController.xib in Resources */,
 				D5BE651825560A8B000BBF66 /* Localizable.strings in Resources */,
 				D5189EEA254B2E73002B69AB /* LaunchScreen.storyboard in Resources */,
 				D5A8DA78255F127300EEA8E4 /* TopicListViewController.xib in Resources */,
@@ -658,6 +672,7 @@
 				D5189EDF254B2E6F002B69AB /* ViewController.swift in Sources */,
 				D5189F2D254B482D002B69AB /* GetLatestTopicsRequest.swift in Sources */,
 				D5189EDB254B2E6F002B69AB /* AppDelegate.swift in Sources */,
+				91733D4F255C5BBE00239562 /* LoginViewController.swift in Sources */,
 				D5189F37254B4AFE002B69AB /* GetLatestTopicsResponse.swift in Sources */,
 				D5189F3F254B4C25002B69AB /* HttpClient.swift in Sources */,
 				D519BE9025571CC8007E3D64 /* RegisterUserRequest.swift in Sources */,
@@ -689,6 +704,7 @@
 				9188EAF6255C0E6800550B53 /* Post.swift in Sources */,
 				D5698D8E254D6A44008018AA /* Poster.swift in Sources */,
 				D5467560255FD158008AD343 /* Date+Extension.swift in Sources */,
+				91733D4B255C5B9600239562 /* LoginViewModel.swift in Sources */,
 				D593983D2555D580004AA116 /* MainViewModel.swift in Sources */,
 				D5717D1F254D845A00A22E3A /* AppDelegate+Injection.swift in Sources */,
 				D5189F32254B4893002B69AB /* HttpRequest.swift in Sources */,

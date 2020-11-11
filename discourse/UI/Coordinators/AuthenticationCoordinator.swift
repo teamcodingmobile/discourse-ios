@@ -25,12 +25,12 @@ class AuthenticationCoordinator: Coordinator {
     }
     
     override func start() {
-        let mainViewModel = MainViewModel()
-        let mainViewController = MainViewController(viewModel: mainViewModel)
+        let loginViewModel = LoginViewModel()
+        let loginViewController = LoginViewController(viewModel: loginViewModel)
         
-        mainViewModel.coordinatorDelegate = self
+        //loginViewModel.coordinatorDelegate = self
         
-        presenter.pushViewController(passwordRecoveryViewController, animated: true)
+        presenter.pushViewController(loginViewController, animated: true)
     }
 }
 
