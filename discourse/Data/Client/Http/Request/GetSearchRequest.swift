@@ -8,11 +8,11 @@
 import Foundation
 
 struct GetSearchRequest: HttpRequest{
-    typealias Response = GetSearchResponse
+    typealias Response = SearchResponse
     var term: String = ""
     
-    init(withWord word: String) {
-        term = word
+    init(withTerm termInput: String) {
+        term = termInput
     }
     
     var method: Method {

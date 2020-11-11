@@ -72,9 +72,9 @@ class discourseTests: XCTestCase {
         let expectation = XCTestExpectation(description: "Search")
         let client = Resolver.resolve(DataClient.self)
         
-        client.getSearch(withWord: "prueba") { (search) in
+        client.getSearch(withTerm: "prueba") { (search) in
             XCTAssertNotNil(search)
-            XCTAssertTrue((search as Any) is Search)
+            XCTAssertTrue((search as Any) is SearchResponse)
             expectation.fulfill()
             
         }onError: { (_) in

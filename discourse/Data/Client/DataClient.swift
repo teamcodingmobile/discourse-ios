@@ -21,6 +21,6 @@ protocol DataClient {
     func registerUser(withData data: RegisterUserForm, onSuccess success: @escaping () -> (), onError error: ((Error?) -> ())?) -> Void
     
     func recoverPassword(withData data: RecoverPasswordForm, onSuccess success: @escaping() -> (), onError error: ((Error?)-> ())?) -> Void
-    
-    func getSearch(withWord word: String, onSuccess success: @escaping (Search) -> (), onError error: ((Error?) -> ())?) -> Void
+
+    func getSearch(withTerm word: String, onSuccess success: @escaping (SearchResponse) -> (), onError error: ((Error?) -> ())?) -> Void
 }

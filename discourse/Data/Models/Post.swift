@@ -2,7 +2,7 @@
 //  Post.swift
 //  discourse
 //
-//  Created by Adrian Arcalá Ocón on 08/11/2020.
+//  Created by Adrian Arcalá Ocón on 11/11/2020.
 //
 
 import Foundation
