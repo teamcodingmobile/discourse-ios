@@ -16,5 +16,5 @@ protocol DataClient {
     
     func createTopic(withTitle title: String, onSuccess success: @escaping () -> (), onError error: ((Error?) -> ())?) -> Void
     
-    func getSearch(withWord word: String, onSuccess success: @escaping (Search) -> (), onError error: ((Error?) -> ())?) -> Void
+    func getSearch(withTerm word: String, onSuccess success: @escaping (SearchResponse) -> (), onError error: ((Error?) -> ())?) -> Void
 }

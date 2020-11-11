@@ -54,10 +54,10 @@ final class HttpClient: DataClient {
         }, onError: error)
     }
     
-    func getSearch(withWord word: String, onSuccess success: @escaping (Search) -> (), onError error: ((Error?) -> ())?) ->Void {
-        send(request: GetSearchRequest(withWord: word), onSuccess: { [weak self ] response in
+    func getSearch(withTerm word: String, onSuccess success: @escaping (SearchResponse) -> (), onError error: ((Error?) -> ())?) ->Void {
+        send(request: GetSearchRequest(withTerm: word), onSuccess: { [weak self ] response in
             if self != nil {
-                self!.search = [response?.topics, response?.users, response?.posts]
+                success(response!)
             }
         }, onError: error)
     }
