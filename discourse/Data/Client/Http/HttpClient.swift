@@ -16,11 +16,17 @@ enum HttpClientError: Error, Equatable {
 
 final class HttpClient: DataClient {
     
+    
     var baseUrl: URL
     
     var apiKey: String
     
+    var userLogged: String = "system"
+    
+    @Injected var authService: AuthService
+    
     @Injected var topicItemFactory: TopicItemFactory
+
     
     lazy var session: URLSession = {
         let configuration = URLSessionConfiguration.default
@@ -29,13 +35,14 @@ final class HttpClient: DataClient {
         return session
     }()
     
-    init(withBaseUrl url: String, apiKey key: String) {
+    init(withBaseUrl url: String, apiKey key: String, apiUsername user: String) {
         guard let url = URL(string: url) else {
             fatalError("$(url) is not a valid URL")
         }
         
         baseUrl = url
         apiKey = key
+        userLogged = self.authService.userLogged
     }
     
     func getLatestTopics(atPage page: Int, onSuccess success: @escaping ([TopicItem]) -> (), onError error: ((Error?) -> ())?) -> Void {
@@ -51,10 +58,19 @@ final class HttpClient: DataClient {
             success()
         }, onError: error)
     }
+
+    func login(withUser username: String, onSuccess success: @escaping () -> (), onError error: ((Error?) -> ())?) {
+        send(request: LoginRequest(username: username), onSuccess: { [weak self] response in
+            if self != nil {
+                self?.authService.logIn(user: username)
+                success()
+            }
+        }, onError: error)
+    }
     
     
     private func send<T: HttpRequest>(request: T, onSuccess success: @escaping (T.Response?) -> (), onError failure: ((Error?) -> ())?) {
-        let urlRequest = request.build(withBaseUrl: baseUrl, usingApiKey: apiKey)
+        let urlRequest = request.build(withBaseUrl: baseUrl, usingApiKey: apiKey, usingApiUsername: userLogged)
         
         let task = session.dataTask(with: urlRequest) { data, response, error in
             guard let httpResponse = response as? HTTPURLResponse else {
@@ -98,4 +114,5 @@ final class HttpClient: DataClient {
         
         task.resume()
     }
+    
 }

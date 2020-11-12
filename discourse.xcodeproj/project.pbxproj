@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		3E712CB9EA4024132F745C7B /* Pods_discourseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4789EEBD94747720387FA03 /* Pods_discourseTests.framework */; };
 		6185EED3A8D66C6608C39B44 /* Pods_discourse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5554A64EFB125220BEEFBC0 /* Pods_discourse.framework */; };
+		91D223832551C90D001EDA36 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D223822551C90D001EDA36 /* LoginResponse.swift */; };
+		91D223872551C94A001EDA36 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D223862551C94A001EDA36 /* LoginRequest.swift */; };
+		91F4E0BF2557956E00D6A5FF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F4E0BE2557956E00D6A5FF /* AuthService.swift */; };
 		D5189EDB254B2E6F002B69AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5189EDA254B2E6F002B69AB /* AppDelegate.swift */; };
 		D5189EDD254B2E6F002B69AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5189EDC254B2E6F002B69AB /* SceneDelegate.swift */; };
 		D5189EDF254B2E6F002B69AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5189EDE254B2E6F002B69AB /* ViewController.swift */; };
@@ -55,6 +58,10 @@
 		5E9EC0C1CDD2F0810CCCFBF4 /* Pods-discourse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-discourse.debug.xcconfig"; path = "Target Support Files/Pods-discourse/Pods-discourse.debug.xcconfig"; sourceTree = "<group>"; };
 		73443131C8135BADDB9CE30C /* Pods-discourse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-discourse.release.xcconfig"; path = "Target Support Files/Pods-discourse/Pods-discourse.release.xcconfig"; sourceTree = "<group>"; };
 		7CFB6EFCF9B29B31AF27F472 /* Pods-discourseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-discourseTests.release.xcconfig"; path = "Target Support Files/Pods-discourseTests/Pods-discourseTests.release.xcconfig"; sourceTree = "<group>"; };
+		91D223822551C90D001EDA36 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		91D223862551C94A001EDA36 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		91F4E0B225578E9300D6A5FF /* discourseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = discourseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		91F4E0BE2557956E00D6A5FF /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		D5189EDA254B2E6F002B69AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5189EDC254B2E6F002B69AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D5189EDE254B2E6F002B69AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,7 +74,6 @@
 		D5189F36254B4AFE002B69AB /* GetLatestTopicsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLatestTopicsResponse.swift; sourceTree = "<group>"; };
 		D5189F3E254B4C25002B69AB /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		D5189F43254B4C34002B69AB /* DataClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataClient.swift; sourceTree = "<group>"; };
-		D51BA451254D639E0092C020 /* discourseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = discourseTests.xctest; path = "/Users/gerard/Repositorios/KeepCoding/Proyecto final/discourse-ios/discourse/build/Debug-iphoneos/discourseTests.xctest"; sourceTree = "<absolute>"; };
 		D51BA453254D639E0092C020 /* discourseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = discourseTests.swift; sourceTree = "<group>"; };
 		D51BA455254D639E0092C020 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5698D85254D63D1008018AA /* discourse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = discourse.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +141,7 @@
 				D5698D85254D63D1008018AA /* discourse.app */,
 				E9F997E0B0E2226A710054FE /* Frameworks */,
 				AC528053282ED8802B675538 /* Pods */,
+				91F4E0B225578E9300D6A5FF /* discourseTests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -171,6 +178,7 @@
 			children = (
 				D5189F1C254B45B4002B69AB /* TopicItem.swift */,
 				D5698D8D254D6A44008018AA /* Poster.swift */,
+				91F4E0BE2557956E00D6A5FF /* AuthService.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -200,6 +208,7 @@
 				D58730902556FBF900FE6FF3 /* CreateTopicRequest.swift */,
 				D5189F2C254B482D002B69AB /* GetLatestTopicsRequest.swift */,
 				D5189F31254B4893002B69AB /* HttpRequest.swift */,
+				91D223862551C94A001EDA36 /* LoginRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -210,6 +219,7 @@
 				D587309A2556FC8E00FE6FF3 /* ErrorResponse.swift */,
 				D587308C2556FBF100FE6FF3 /* CreateTopicResponse.swift */,
 				D5189F36254B4AFE002B69AB /* GetLatestTopicsResponse.swift */,
+				91D223822551C90D001EDA36 /* LoginResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -334,7 +344,7 @@
 			);
 			name = discourseTests;
 			productName = discourseTests;
-			productReference = D51BA451254D639E0092C020 /* discourseTests.xctest */;
+			productReference = 91F4E0B225578E9300D6A5FF /* discourseTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -475,6 +485,7 @@
 				D593983A2555D580004AA116 /* Coordinator.swift in Sources */,
 				D59398392555D580004AA116 /* AppCoordinator.swift in Sources */,
 				D5698D9B254D6EFB008018AA /* PosterFactory.swift in Sources */,
+				91D223872551C94A001EDA36 /* LoginRequest.swift in Sources */,
 				D5698D88254D6817008018AA /* TopicItemFactory.swift in Sources */,
 				D5717D27254D859E00A22E3A /* DataClientServices+Injection.swift in Sources */,
 				D5717D23254D852800A22E3A /* FactoryServices+Injection.swift in Sources */,
@@ -484,10 +495,12 @@
 				D593983D2555D580004AA116 /* MainViewModel.swift in Sources */,
 				D5717D1F254D845A00A22E3A /* AppDelegate+Injection.swift in Sources */,
 				D5189F32254B4893002B69AB /* HttpRequest.swift in Sources */,
+				91F4E0BF2557956E00D6A5FF /* AuthService.swift in Sources */,
 				D5189F44254B4C34002B69AB /* DataClient.swift in Sources */,
 				D5189EE5254B2E6F002B69AB /* discourse.xcdatamodeld in Sources */,
 				D59398382555D580004AA116 /* AuthenticationCoordinator.swift in Sources */,
 				D593983C2555D580004AA116 /* MainViewController.swift in Sources */,
+				91D223832551C90D001EDA36 /* LoginResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

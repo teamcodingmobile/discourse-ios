@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Resolver
 
 enum Method: String {
     case GET
@@ -24,6 +25,7 @@ protocol HttpRequest {
 }
 
 extension HttpRequest {
+    
     var parameters: [String: String] {
         return [:]
     }
@@ -36,8 +38,9 @@ extension HttpRequest {
         return [:]
     }
     
-    func build(withBaseUrl baseUrl: URL, usingApiKey apiKey: String) -> URLRequest {
+    func build(withBaseUrl baseUrl: URL, usingApiKey apiKey: String, usingApiUsername apiUsername: String) -> URLRequest {
         let url = baseUrl.appendingPathComponent(path)
+        
         
         guard var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
             fatalError("Unable to create URL components")
@@ -62,7 +65,7 @@ extension HttpRequest {
         
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.addValue(apiKey, forHTTPHeaderField: "Api-Key")
-        urlRequest.addValue("system", forHTTPHeaderField: "Api-Username")
+        urlRequest.addValue(apiUsername, forHTTPHeaderField: "Api-Username")
         
         return urlRequest
     }
