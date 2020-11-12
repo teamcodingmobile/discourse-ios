@@ -14,10 +14,23 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var inputUsername: UITextField!
     @IBOutlet weak var inputPassword: UITextField!
     
+    var user: String
+    
+    @IBAction func next(_ sender: Any) {
+        inputUsername.endEditing(true)
+    }
+    @IBAction func loginReturn(_ sender: Any) {
+        if inputUsername.text != nil {
+            user = inputUsername.text!
+            viewModel.logIn(userInput: user)
+        }
+    }
+    
+    
     
     init(viewModel: LoginViewModel) {
         self.viewModel = viewModel
-        
+        self.user = ""
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -28,9 +41,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupInputs()
         setupNavbar()
+        setupInputs()
     }
     
     func setupNavbar() {
@@ -53,5 +65,6 @@ class LoginViewController: UIViewController {
         inputPassword.returnKeyType = .join
     }
 
+    
 }
 
