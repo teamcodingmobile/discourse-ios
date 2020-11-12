@@ -7,6 +7,18 @@
 
 import Foundation
 
+protocol LoginCoordinatorDelegate: class {
+    func isLogged()
+}
+
 class LoginViewModel {
+    weak var coordinatorDelegate: LoginCoordinatorDelegate?
+    
+    
+    
+    func isLogged(){
+        coordinatorDelegate?.isLogged()
+    }
+    
     
 }

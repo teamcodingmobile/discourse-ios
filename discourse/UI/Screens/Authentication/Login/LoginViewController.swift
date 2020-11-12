@@ -18,6 +18,7 @@ class LoginViewController: UIViewController {
     init(viewModel: LoginViewModel) {
         self.viewModel = viewModel
         
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -27,20 +28,30 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavbar()
         
+        setupInputs()
+        setupNavbar()
     }
     
-    private func setupNavbar() {
+    func setupNavbar() {
+        
         let navBar = navigationController!.navigationBar
-        navBar.barTintColor = UIColor.white
+
+        navBar.barTintColor = .white
         navBar.shadowImage = UIImage()
+        navBar.setBackgroundImage(nil, for: .default)
+        
         
         let logo = UIImage(named: "discourseLogoSinFondo.png")
         let titleLogo = UIImageView(image: logo)
         
         navigationItem.titleView = titleLogo
-        
     }
     
+    func setupInputs(){
+        inputUsername.returnKeyType = .next
+        inputPassword.returnKeyType = .join
+    }
+
 }
+

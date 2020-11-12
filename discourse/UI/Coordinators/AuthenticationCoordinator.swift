@@ -8,6 +8,8 @@
 import UIKit
 
 class AuthenticationCoordinator: Coordinator {
+    
+    
     let presenter: UINavigationController
     
     lazy var passwordRecoveryViewController: PasswordRecoveryViewController = {
@@ -25,12 +27,13 @@ class AuthenticationCoordinator: Coordinator {
     }
     
     override func start() {
-        let loginViewModel = LoginViewModel()
-        let loginViewController = LoginViewController(viewModel: loginViewModel)
+        let mainViewModel = MainViewModel()
+        let mainViewController = MainViewController(viewModel: mainViewModel)
         
-        //loginViewModel.coordinatorDelegate = self
+        mainViewModel.coordinatorDelegate = self
         
-        presenter.pushViewController(loginViewController, animated: true)
+        
+        presenter.pushViewController(mainViewController, animated: true)
     }
 }
 
