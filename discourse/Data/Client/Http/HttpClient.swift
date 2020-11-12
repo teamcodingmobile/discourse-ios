@@ -68,6 +68,11 @@ final class HttpClient: DataClient {
         }, onError: error)
     }
     
+    func registerUser(withData data: RegisterUserForm, onSuccess success: @escaping () -> (), onError error: ((Error?) -> ())?) {
+        send(request: RegisterUserRequest(data: data), onSuccess: { _ in
+            success()
+        }, onError: error)
+    }
     
     private func send<T: HttpRequest>(request: T, onSuccess success: @escaping (T.Response?) -> (), onError failure: ((Error?) -> ())?) {
         let urlRequest = request.build(withBaseUrl: baseUrl, usingApiKey: apiKey, usingApiUsername: userLogged)

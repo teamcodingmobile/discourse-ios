@@ -26,10 +26,22 @@ class AuthenticationCoordinator: Coordinator {
 
 extension AuthenticationCoordinator: MainCoordinatorDelegate {
     func onRegisterButtonTapped() {
-        //TODO: Push RegisterViewController
+        let viewModel = RegistrationViewModel()
+        let viewController = RegistrationViewController(viewModel: viewModel)
+        
+        viewModel.coordinator = self
+        viewModel.delegate = viewController
+        
+        presenter.pushViewController(viewController, animated: true)
     }
     
     func onLoginButtonTapped() {
         //TODO: Push LoginViewController
+    }
+}
+
+extension AuthenticationCoordinator: RegistrationViewCoordinator {
+    func onSuccessRegistration() {
+        //TODO: Go to login
     }
 }
