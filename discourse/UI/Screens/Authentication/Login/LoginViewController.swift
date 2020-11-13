@@ -11,22 +11,12 @@ class LoginViewController: UIViewController {
     
     let viewModel: LoginViewModel
     @IBOutlet weak var loginTitle: UILabel!
-    @IBOutlet weak var inputUsername: UITextField!
-    @IBOutlet weak var inputPassword: UITextField!
+    @IBOutlet weak var inputUsername: TextInput!
+    @IBOutlet weak var inputPassword: TextInput!
     
+    
+    weak var activeInput: UITextField?
     var user: String
-    
-    @IBAction func next(_ sender: Any) {
-        inputUsername.endEditing(true)
-    }
-    @IBAction func loginReturn(_ sender: Any) {
-        if inputUsername.text != nil {
-            user = inputUsername.text!
-            viewModel.logIn(userInput: user)
-        }
-    }
-    
-    
     
     init(viewModel: LoginViewModel) {
         self.viewModel = viewModel
@@ -61,10 +51,44 @@ class LoginViewController: UIViewController {
     }
     
     func setupInputs(){
+        inputUsername.textView.delegate = self
+        inputPassword.textView.delegate = self
+        
         inputUsername.returnKeyType = .next
         inputPassword.returnKeyType = .join
     }
-
-    
+    func submit(){
+        user = inputUsername.value ?? ""
+        
+        viewModel.logIn(userInput: user)
+    }
 }
 
+extension LoginViewController: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        activeInput = nil
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        activeInput = textField
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        switch textField {
+        case inputUsername.textView:
+            inputPassword.becomeFirstResponder()
+        default:
+            inputPassword.endEditing(true)
+            submit()
+        }
+        
+        return true
+    }
+}
+extension LoginViewController: LoginViewDelegate {
+    func onLoginError() {
+        showAlert("User or password is invalid")
+    }
+}

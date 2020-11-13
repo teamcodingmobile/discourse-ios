@@ -11,20 +11,23 @@ import Resolver
 protocol LoginCoordinatorDelegate: class {
     func isLogged()
 }
+protocol LoginViewDelegate {
+    func onLoginError()
+}
 
 class LoginViewModel {
     
-    @Injected var httpClient: HttpClient
+    @LazyInjected var dataClient: DataClient
     weak var coordinatorDelegate: LoginCoordinatorDelegate?
+    var delegate: LoginViewDelegate?
     
     
     func logIn(userInput: String){
-        httpClient.login(withUser: userInput) {
-            self.isLogged()
-            print(self.httpClient.authService.userLogged)
+        dataClient.login(withUser: userInput) {
+            self.isLogged() 
         } onError: { e in
             print("User invalido")
-            print(self.httpClient.authService.userLogged)
+            self.delegate?.onLoginError()
         }
 
     }
