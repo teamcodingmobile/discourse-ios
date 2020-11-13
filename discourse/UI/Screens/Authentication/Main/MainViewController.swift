@@ -53,12 +53,19 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupNavbar()
         setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setupNavbar()
     }
     
     private func setupNavbar() {
         let navbar = navigationController!.navigationBar
+        navbar.isTranslucent = false
+        navbar.shadowImage = UIImage()
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         let gradient = CAGradientLayer()
         gradient.frame = navbar.frame
