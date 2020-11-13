@@ -8,34 +8,38 @@
 import Foundation
 
 protocol AuthServicesProtocol{
+    
+    var isLogged: Bool { get }
+    var loggedUser: String? { get }
+    
     func logIn(user: String)
     func logOut()
 }
 
 class AuthService: AuthServicesProtocol{
     
-    private let log = UserDefaults.standard
+    private static let userKey = "loggedUser"
     
-    var userLogged = "system"
-    var isLogged: Bool
+    private let storage = UserDefaults.standard
     
-    init(){
-        if (log.value(forKey: "log") != nil){
-            isLogged = true
-        }else {
-            isLogged = false
+    var isLogged: Bool {
+        get {
+            return storage.value(forKey: AuthService.userKey) != nil
+        }
+    }
+    
+    var loggedUser: String? {
+        get {
+            return storage.string(forKey: AuthService.userKey)
         }
     }
     
     func logIn(user: String){
-        log.setValue(user, forKey: "log")
-        userLogged = log.value(forKey: "log") as! String
-        isLogged = true
+        storage.setValue(user, forKey: AuthService.userKey)
     }
     
     func logOut(){
-        log.removeObject(forKey: "log")
-        isLogged = false
+        storage.removeObject(forKey: AuthService.userKey)
     }
     
 }
