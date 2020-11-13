@@ -73,6 +73,13 @@ final class HttpClient: DataClient {
         }, onError: error)
     }
     
+    func recoverPassword(withData data: RecoverPasswordForm, onSuccess success: @escaping() -> (), onError error: ((Error?)-> ())?) -> Void {
+        send(request: RecoverPasswordRequest(data: data), onSuccess: { _ in
+            success()
+        }, onError: error)
+
+    }
+    
     private func send<T: HttpRequest>(request: T, onSuccess success: @escaping (T.Response?) -> (), onError failure: ((Error?) -> ())?) {
         let urlRequest = request.build(withBaseUrl: baseUrl, usingApiKey: apiKey, usingApiUsername: authService.loggedUser ?? "system")
         

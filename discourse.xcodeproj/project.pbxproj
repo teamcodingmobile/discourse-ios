@@ -30,6 +30,12 @@
 		D51BA454254D639E0092C020 /* discourseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51BA453254D639E0092C020 /* discourseTests.swift */; };
 		D5467560255FD158008AD343 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D546755F255FD158008AD343 /* Date+Extension.swift */; };
 		D5467564255FED32008AD343 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5467563255FED32008AD343 /* String+Extension.swift */; };
+		D55AFB40255EE7EC00AFEE21 /* PasswordRecoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55AFB3E255EE7EC00AFEE21 /* PasswordRecoveryViewController.swift */; };
+		D55AFB41255EE7EC00AFEE21 /* PasswordRecoveryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D55AFB3F255EE7EC00AFEE21 /* PasswordRecoveryViewController.xib */; };
+		D55AFB45255EE80A00AFEE21 /* PasswordRecoveryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55AFB44255EE80A00AFEE21 /* PasswordRecoveryViewModel.swift */; };
+		D55AFB49255EE83A00AFEE21 /* RecoverPasswordForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55AFB48255EE83A00AFEE21 /* RecoverPasswordForm.swift */; };
+		D55AFB50255EEBDC00AFEE21 /* RecoverPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55AFB4F255EEBDC00AFEE21 /* RecoverPasswordRequest.swift */; };
+		D55AFB54255EEC0700AFEE21 /* RecoverPasswordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55AFB53255EEC0700AFEE21 /* RecoverPasswordResponse.swift */; };
 		D5698D88254D6817008018AA /* TopicItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5698D87254D6817008018AA /* TopicItemFactory.swift */; };
 		D5698D8E254D6A44008018AA /* Poster.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5698D8D254D6A44008018AA /* Poster.swift */; };
 		D5698D9B254D6EFB008018AA /* PosterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5698D9A254D6EFB008018AA /* PosterFactory.swift */; };
@@ -55,6 +61,7 @@
 		D5A8DA82255F1BBD00EEA8E4 /* TopicItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A8DA80255F1BBD00EEA8E4 /* TopicItemCell.swift */; };
 		D5A8DA83255F1BBD00EEA8E4 /* TopicItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5A8DA81255F1BBD00EEA8E4 /* TopicItemCell.xib */; };
 		D5A8DA89255F205F00EEA8E4 /* TopicItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A8DA88255F205F00EEA8E4 /* TopicItemViewModel.swift */; };
+		D5A8DA6A255F0E7B00EEA8E4 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A8DA69255F0E7B00EEA8E4 /* UIButton+Extensions.swift */; };
 		D5AEEC642556FE2A00723515 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AEEC622556FE2A00723515 /* RegistrationViewController.swift */; };
 		D5AEEC692556FE3A00723515 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AEEC682556FE3A00723515 /* RegistrationViewModel.swift */; };
 		D5BE651825560A8B000BBF66 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5BE651A25560A8B000BBF66 /* Localizable.strings */; };
@@ -81,7 +88,6 @@
 		7CFB6EFCF9B29B31AF27F472 /* Pods-discourseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-discourseTests.release.xcconfig"; path = "Target Support Files/Pods-discourseTests/Pods-discourseTests.release.xcconfig"; sourceTree = "<group>"; };
 		91D223822551C90D001EDA36 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		91D223862551C94A001EDA36 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
-		91F4E0B225578E9300D6A5FF /* discourseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = discourseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		91F4E0BE2557956E00D6A5FF /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		D5189EDA254B2E6F002B69AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5189EDC254B2E6F002B69AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +108,12 @@
 		D51BA455254D639E0092C020 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D546755F255FD158008AD343 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		D5467563255FED32008AD343 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		D55AFB3E255EE7EC00AFEE21 /* PasswordRecoveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRecoveryViewController.swift; sourceTree = "<group>"; };
+		D55AFB3F255EE7EC00AFEE21 /* PasswordRecoveryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PasswordRecoveryViewController.xib; sourceTree = "<group>"; };
+		D55AFB44255EE80A00AFEE21 /* PasswordRecoveryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRecoveryViewModel.swift; sourceTree = "<group>"; };
+		D55AFB48255EE83A00AFEE21 /* RecoverPasswordForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordForm.swift; sourceTree = "<group>"; };
+		D55AFB4F255EEBDC00AFEE21 /* RecoverPasswordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordRequest.swift; sourceTree = "<group>"; };
+		D55AFB53255EEC0700AFEE21 /* RecoverPasswordResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordResponse.swift; sourceTree = "<group>"; };
 		D5698D85254D63D1008018AA /* discourse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = discourse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5698D87254D6817008018AA /* TopicItemFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicItemFactory.swift; sourceTree = "<group>"; };
 		D5698D8D254D6A44008018AA /* Poster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poster.swift; sourceTree = "<group>"; };
@@ -129,6 +141,8 @@
 		D5A8DA80255F1BBD00EEA8E4 /* TopicItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicItemCell.swift; sourceTree = "<group>"; };
 		D5A8DA81255F1BBD00EEA8E4 /* TopicItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopicItemCell.xib; sourceTree = "<group>"; };
 		D5A8DA88255F205F00EEA8E4 /* TopicItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicItemViewModel.swift; sourceTree = "<group>"; };
+		D5A8DA66255EEE4200EEA8E4 /* discourseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = discourseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5A8DA69255F0E7B00EEA8E4 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
 		D5AEEC622556FE2A00723515 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		D5AEEC682556FE3A00723515 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		D5BE64FF2556091B000BBF66 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = es; path = es.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -183,7 +197,7 @@
 				D5698D85254D63D1008018AA /* discourse.app */,
 				E9F997E0B0E2226A710054FE /* Frameworks */,
 				AC528053282ED8802B675538 /* Pods */,
-				91F4E0B225578E9300D6A5FF /* discourseTests.xctest */,
+				D5A8DA66255EEE4200EEA8E4 /* discourseTests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -254,6 +268,7 @@
 				D5189F31254B4893002B69AB /* HttpRequest.swift */,
 				91D223862551C94A001EDA36 /* LoginRequest.swift */,
 				D519BE8F25571CC8007E3D64 /* RegisterUserRequest.swift */,
+				D55AFB4F255EEBDC00AFEE21 /* RecoverPasswordRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -266,6 +281,7 @@
 				D5189F36254B4AFE002B69AB /* GetLatestTopicsResponse.swift */,
 				91D223822551C90D001EDA36 /* LoginResponse.swift */,
 				D519BE9325571CF6007E3D64 /* RegisterUserResponse.swift */,
+				D55AFB53255EEC0700AFEE21 /* RecoverPasswordResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -277,6 +293,16 @@
 				D51BA455254D639E0092C020 /* Info.plist */,
 			);
 			path = discourseTests;
+			sourceTree = "<group>";
+		};
+		D55AFB3D255EE7D300AFEE21 /* PasswordRecovery */ = {
+			isa = PBXGroup;
+			children = (
+				D55AFB3E255EE7EC00AFEE21 /* PasswordRecoveryViewController.swift */,
+				D55AFB3F255EE7EC00AFEE21 /* PasswordRecoveryViewController.xib */,
+				D55AFB44255EE80A00AFEE21 /* PasswordRecoveryViewModel.swift */,
+			);
+			path = PasswordRecovery;
 			sourceTree = "<group>";
 		};
 		D5698D86254D67F9008018AA /* Factory */ = {
@@ -306,6 +332,7 @@
 				D5D9C156255F34FC0098033B /* UIImage+Extension.swift */,
 				D546755F255FD158008AD343 /* Date+Extension.swift */,
 				D5467563255FED32008AD343 /* String+Extension.swift */,
+				D5A8DA69255F0E7B00EEA8E4 /* UIButton+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -343,6 +370,7 @@
 		D59398332555D580004AA116 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				D55AFB3D255EE7D300AFEE21 /* PasswordRecovery */,
 				D5AEEC612556FE1400723515 /* Registration */,
 				D59398342555D580004AA116 /* Main */,
 			);
@@ -402,6 +430,7 @@
 			children = (
 				D519BE9E25576900007E3D64 /* RegisterUserForm.swift */,
 				D5E417E42559FBDF00FD84AC /* Form.swift */,
+				D55AFB48255EE83A00AFEE21 /* RecoverPasswordForm.swift */,
 			);
 			path = Forms;
 			sourceTree = "<group>";
@@ -471,7 +500,7 @@
 			);
 			name = discourseTests;
 			productName = discourseTests;
-			productReference = 91F4E0B225578E9300D6A5FF /* discourseTests.xctest */;
+			productReference = D5A8DA66255EEE4200EEA8E4 /* discourseTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -521,6 +550,7 @@
 				D5189EEA254B2E73002B69AB /* LaunchScreen.storyboard in Resources */,
 				D5A8DA78255F127300EEA8E4 /* TopicListViewController.xib in Resources */,
 				D5A8DA83255F1BBD00EEA8E4 /* TopicItemCell.xib in Resources */,
+				D55AFB41255EE7EC00AFEE21 /* PasswordRecoveryViewController.xib in Resources */,
 				D593983B2555D580004AA116 /* MainViewController.xib in Resources */,
 				D57E471A255DCAA1003F2BB6 /* RegistrationViewController.xib in Resources */,
 				D5189EE7254B2E73002B69AB /* Assets.xcassets in Resources */,
@@ -607,6 +637,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D587308D2556FBF100FE6FF3 /* CreateTopicResponse.swift in Sources */,
+				D5A8DA6A255F0E7B00EEA8E4 /* UIButton+Extensions.swift in Sources */,
 				D5189EDF254B2E6F002B69AB /* ViewController.swift in Sources */,
 				D5189F2D254B482D002B69AB /* GetLatestTopicsRequest.swift in Sources */,
 				D5189EDB254B2E6F002B69AB /* AppDelegate.swift in Sources */,
@@ -615,17 +646,21 @@
 				D519BE9025571CC8007E3D64 /* RegisterUserRequest.swift in Sources */,
 				D58730912556FBF900FE6FF3 /* CreateTopicRequest.swift in Sources */,
 				D5189EDD254B2E6F002B69AB /* SceneDelegate.swift in Sources */,
+				D55AFB50255EEBDC00AFEE21 /* RecoverPasswordRequest.swift in Sources */,
 				D593983A2555D580004AA116 /* Coordinator.swift in Sources */,
 				D5A8DA77255F127300EEA8E4 /* TopicListViewController.swift in Sources */,
+				D55AFB49255EE83A00AFEE21 /* RecoverPasswordForm.swift in Sources */,
 				D5AEEC692556FE3A00723515 /* RegistrationViewModel.swift in Sources */,
 				D5467564255FED32008AD343 /* String+Extension.swift in Sources */,
 				D59398392555D580004AA116 /* AppCoordinator.swift in Sources */,
+				D55AFB40255EE7EC00AFEE21 /* PasswordRecoveryViewController.swift in Sources */,
 				D5698D9B254D6EFB008018AA /* PosterFactory.swift in Sources */,
 				91D223872551C94A001EDA36 /* LoginRequest.swift in Sources */,
 				D5D9C157255F34FC0098033B /* UIImage+Extension.swift in Sources */,
 				D5698D88254D6817008018AA /* TopicItemFactory.swift in Sources */,
 				D5E417E52559FBDF00FD84AC /* Form.swift in Sources */,
 				D5717D27254D859E00A22E3A /* DataClientServices+Injection.swift in Sources */,
+				D55AFB45255EE80A00AFEE21 /* PasswordRecoveryViewModel.swift in Sources */,
 				D5717D23254D852800A22E3A /* FactoryServices+Injection.swift in Sources */,
 				D519BE9425571CF6007E3D64 /* RegisterUserResponse.swift in Sources */,
 				D5A8DA89255F205F00EEA8E4 /* TopicItemViewModel.swift in Sources */,
@@ -643,6 +678,7 @@
 				D5A8DA70255F11FC00EEA8E4 /* TopicsCoordinator.swift in Sources */,
 				D5A8DA82255F1BBD00EEA8E4 /* TopicItemCell.swift in Sources */,
 				D5189F44254B4C34002B69AB /* DataClient.swift in Sources */,
+				D55AFB54255EEC0700AFEE21 /* RecoverPasswordResponse.swift in Sources */,
 				D57E4729255DDCAE003F2BB6 /* UIViewController+Extensions.swift in Sources */,
 				D5189EE5254B2E6F002B69AB /* discourse.xcdatamodeld in Sources */,
 				D5A8DA7D255F18CA00EEA8E4 /* TopicListViewModel.swift in Sources */,
