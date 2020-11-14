@@ -21,13 +21,14 @@ class AuthenticationCoordinator: Coordinator {
     }
     
     override func start() {
+
         let mainViewModel = MainViewModel()
         let mainViewController = MainViewController(viewModel: mainViewModel)
-        
+
         mainViewModel.coordinatorDelegate = self
-        
-        
+
         presenter.pushViewController(mainViewController, animated: true)
+
     }
 }
 
