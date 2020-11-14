@@ -35,14 +35,13 @@ final class HttpClient: DataClient {
         return session
     }()
     
-    init(withBaseUrl url: String, apiKey key: String, apiUsername user: String) {
+    init(withBaseUrl url: String, apiKey key: String) {
         guard let url = URL(string: url) else {
             fatalError("$(url) is not a valid URL")
         }
         
         baseUrl = url
         apiKey = key
-        userLogged = self.authService.userLogged
     }
     
     func getLatestTopics(atPage page: Int, onSuccess success: @escaping ([TopicItem]) -> (), onError error: ((Error?) -> ())?) -> Void {
@@ -75,7 +74,7 @@ final class HttpClient: DataClient {
     }
     
     private func send<T: HttpRequest>(request: T, onSuccess success: @escaping (T.Response?) -> (), onError failure: ((Error?) -> ())?) {
-        let urlRequest = request.build(withBaseUrl: baseUrl, usingApiKey: apiKey, usingApiUsername: userLogged)
+        let urlRequest = request.build(withBaseUrl: baseUrl, usingApiKey: apiKey, usingApiUsername: authService.loggedUser ?? "system")
         
         let task = session.dataTask(with: urlRequest) { data, response, error in
             guard let httpResponse = response as? HTTPURLResponse else {

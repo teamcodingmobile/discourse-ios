@@ -67,20 +67,9 @@ class MainViewController: UIViewController {
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
-        let gradient = CAGradientLayer()
-        gradient.frame = navbar.frame
-        gradient.colors = [UIColor(named: "secondaryGradientColor1")!.cgColor, UIColor(named: "secondaryGradientColor2")!.cgColor]
-        gradient.startPoint = .zero
-        gradient.endPoint = CGPoint(x: 1, y: 0)
-        
-        UIGraphicsBeginImageContext(gradient.frame.size)
-        gradient.render(in: UIGraphicsGetCurrentContext()!)
-        
-        let outputImage = UIGraphicsGetImageFromCurrentImageContext()
-        
-        UIGraphicsEndImageContext()
+        let gradient = UIImage.gradient(from: UIColor(named: "secondaryGradientColor1")!, to: UIColor(named: "secondaryGradientColor2")!, frame: navbar.frame)
 
-        navigationController!.navigationBar.setBackgroundImage(outputImage, for: .default)
+        navigationController!.navigationBar.setBackgroundImage(gradient, for: .default)
     }
     
     private func setupUI() {

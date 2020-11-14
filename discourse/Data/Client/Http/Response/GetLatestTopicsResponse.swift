@@ -37,10 +37,11 @@ struct GetLatestTopicsResponse: Codable {
 struct GetLatestTopicsResponseTopic: Codable {
     var id: Int
     var title: String
+    var viewsCount: Int
     var postsCount: Int
     var replyCount: Int
     var lastPosterUsername: String
-    var lastPostedAt: Date?
+    var lastPostedAt: String
     var excerpt: String?
     var pinned: Bool
     var posters: [TopicPoster]
@@ -48,6 +49,7 @@ struct GetLatestTopicsResponseTopic: Codable {
     enum CodingKeys: String, CodingKey {
         case id
         case title
+        case viewsCount = "views"
         case postsCount = "posts_count"
         case replyCount = "reply_count"
         case lastPostedAt = "last_posted_at"
@@ -58,24 +60,18 @@ struct GetLatestTopicsResponseTopic: Codable {
     }
     
     init(from decoder: Decoder) throws {
+    
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decode(Int.self, forKey: .id)
         title = try values.decode(String.self, forKey: .title)
+        viewsCount = try values.decode(Int.self, forKey: .viewsCount)
         postsCount = try values.decode(Int.self, forKey: .postsCount)
         replyCount = try values.decode(Int.self, forKey: .replyCount)
         lastPosterUsername = try values.decode(String.self, forKey: .lastPosterUsername)
         excerpt = (try values.decodeIfPresent(String.self, forKey: .excerpt)) ?? nil
         pinned = try values.decode(Bool.self, forKey: .pinned)
         posters = (try? values.decode([TopicPoster].self, forKey: .posters)) ?? []
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "es")
-        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-        dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSSZ"
-        
-        let lastPostedAtString = try values.decode(String.self, forKey: .lastPostedAt)
-        lastPostedAt = dateFormatter.date(from: lastPostedAtString)
-
+        lastPostedAt = try values.decode(String.self, forKey: .lastPostedAt)
     }
     
     func encode(to encoder: Encoder) throws {
