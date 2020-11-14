@@ -78,6 +78,9 @@ class RegistrationViewController: UIViewController {
         usernameInput.textContentType = .nickname
         passwordInput.textContentType = .newPassword
         
+        passwordInput.textView.isSecureTextEntry = true
+        passwordConfirmationInput.textView.isSecureTextEntry = true
+        
         usernameInput.keyboardType = .asciiCapable
         emailInput.keyboardType = .emailAddress
     }
@@ -125,23 +128,25 @@ class RegistrationViewController: UIViewController {
     }
 
     @objc func keyboardDidShow(notification: NSNotification) {
-        let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
-        guard let activeInput = activeInput, let keyboardHeight = keyboardSize?.height else { return }
+        let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+        guard let keyboardHeight = keyboardSize?.height else { return }
         
         actionsViewConstraint.constant = keyboardHeight
         
         let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardHeight, right: 0.0)
         scrollView.contentInset = contentInsets
         
-        let activeRect = activeInput.convert(activeInput.bounds, to: scrollView)
-        scrollView.scrollRectToVisible(activeRect, animated: true)
-        
-        view.layoutIfNeeded()
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            self?.view.layoutIfNeeded()
+        }
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
         actionsViewConstraint.constant = 0
-        view.layoutIfNeeded()
+        
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            self?.view.layoutIfNeeded()
+        }
     }
     
     @IBAction func onRegisterButtonTapped(_ sender: Any) {

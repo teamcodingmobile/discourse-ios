@@ -16,9 +16,11 @@ protocol DataClient {
     
     func createTopic(withTitle title: String, onSuccess success: @escaping () -> (), onError error: ((Error?) -> ())?) -> Void
 
-    func login(withUser username: String, onSuccess success: @escaping() -> (), onError error: ((Error?)-> ())?) -> Void
+    func login(withData data: LoginForm, onSuccess success: @escaping() -> (), onError error: ((Error?)-> ())?) -> Void
     
     func registerUser(withData data: RegisterUserForm, onSuccess success: @escaping () -> (), onError error: ((Error?) -> ())?) -> Void
     
     func recoverPassword(withData data: RecoverPasswordForm, onSuccess success: @escaping() -> (), onError error: ((Error?)-> ())?) -> Void
+
+    func getSearch(withTerm word: String, onSuccess success: @escaping (SearchResponse) -> (), onError error: ((Error?) -> ())?) -> Void
 }

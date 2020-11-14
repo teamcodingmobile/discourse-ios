@@ -106,16 +106,22 @@ class PasswordRecoveryViewController: UIViewController {
     }
 
     @objc func keyboardDidShow(notification: NSNotification) {
-        let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
+        let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
         guard let keyboardHeight = keyboardSize?.height else { return }
         
         actionsViewConstraint.constant = keyboardHeight
-        view.layoutIfNeeded()
+        
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            self?.view.layoutIfNeeded()
+        }
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
         actionsViewConstraint.constant = 0
-        view.layoutIfNeeded()
+        
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            self?.view.layoutIfNeeded()
+        }
     }
     
     @IBAction func onSendEmailButtonTapped(_ sender: Any) {

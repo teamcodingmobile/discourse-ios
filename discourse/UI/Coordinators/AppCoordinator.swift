@@ -17,12 +17,27 @@ class AppCoordinator: Coordinator {
     }
     
     override func start() {
+        
+        if authService.isLogged {
+            startMainFlow()
+        } else {
+            startAuthenticationFlow()
+        }
+    }
+    
+    func startAuthenticationFlow() {
         let authNavigationController = UINavigationController()
         let authCoordinator = AuthenticationCoordinator(presenter: authNavigationController)
+        authCoordinator.delegate = self
 
         addChildCoordinator(authCoordinator)
         authCoordinator.start()
         
+        window.rootViewController = authNavigationController
+        window.makeKeyAndVisible()
+    }
+    
+    func startMainFlow() {
         let topicsNavigationController = UINavigationController()
         topicsNavigationController.tabBarItem.title = NSLocalizedString("tabs.topics.title", comment: "")
         topicsNavigationController.tabBarItem.image = UIImage(systemName: "message.circle")
@@ -36,5 +51,11 @@ class AppCoordinator: Coordinator {
         
         window.rootViewController = tabBarController
         window.makeKeyAndVisible()
+    }
+}
+
+extension AppCoordinator: AuthenticationCoordinatorDelegate {
+    func onAuthenticationFlowFinished() {
+        startMainFlow()
     }
 }

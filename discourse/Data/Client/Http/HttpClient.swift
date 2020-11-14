@@ -26,7 +26,6 @@ final class HttpClient: DataClient {
     @Injected var authService: AuthService
     
     @Injected var topicItemFactory: TopicItemFactory
-
     
     lazy var session: URLSession = {
         let configuration = URLSessionConfiguration.default
@@ -58,10 +57,10 @@ final class HttpClient: DataClient {
         }, onError: error)
     }
 
-    func login(withUser username: String, onSuccess success: @escaping () -> (), onError error: ((Error?) -> ())?) {
-        send(request: LoginRequest(username: username), onSuccess: { [weak self] response in
+    func login(withData data: LoginForm, onSuccess success: @escaping () -> (), onError error: ((Error?) -> ())?) {
+        send(request: LoginRequest(data: data), onSuccess: { [weak self] response in
             if self != nil {
-                self?.authService.logIn(user: username)
+                self?.authService.logIn(user: data.username!)
                 success()
             }
         }, onError: error)
@@ -70,6 +69,14 @@ final class HttpClient: DataClient {
     func registerUser(withData data: RegisterUserForm, onSuccess success: @escaping () -> (), onError error: ((Error?) -> ())?) {
         send(request: RegisterUserRequest(data: data), onSuccess: { _ in
             success()
+        }, onError: error)
+    }
+
+    func getSearch(withTerm word: String, onSuccess success: @escaping (SearchResponse) -> (), onError error: ((Error?) -> ())?) ->Void {
+        send(request: GetSearchRequest(withTerm: word), onSuccess: { [weak self ] response in
+            if self != nil {
+                success(response!)
+            }
         }, onError: error)
     }
     

@@ -10,10 +10,11 @@ import Foundation
 struct LoginRequest: HttpRequest {
     
     typealias Response = LoginResponse
-    var user: String
     
-    init(username: String) {
-        user = username
+    var data: LoginForm
+    
+    init(data: LoginForm) {
+        self.data = data
     }
     
     var method: Method {
@@ -21,7 +22,7 @@ struct LoginRequest: HttpRequest {
     }
     
     var path: String {
-        return "/users/\(user).json"
+        return "/users/\(data.username!).json"
     }
     
     var parameters: [String : String] {
@@ -29,6 +30,6 @@ struct LoginRequest: HttpRequest {
     }
     
     var headers: [String : String]{
-        return ["Api-Username": user]
+        return ["Api-Username": data.username!]
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 import Resolver
 
-protocol RegistrationViewCoordinator {
+protocol RegistrationCoordinatorDelegate {
     func onSuccessRegistration()
 }
 
@@ -22,7 +22,7 @@ protocol RegisterUserFormValidator {
 }
 
 class RegistrationViewModel {
-    var coordinator: RegistrationViewCoordinator?
+    var coordinator: RegistrationCoordinatorDelegate?
     var delegate: RegistrationViewDelegate?
     @LazyInjected var dataClient: DataClient
     @LazyInjected var formValidator: FormValidator
