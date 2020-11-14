@@ -81,7 +81,6 @@ class discourseTests: XCTestCase {
         
         wait(for: [expectation], timeout: 10.0)
     }
-    
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.

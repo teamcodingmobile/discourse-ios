@@ -9,7 +9,7 @@ import Foundation
 
 struct GetLatestTopicsRequest: HttpRequest {
     typealias Response = GetLatestTopicsResponse
-    var page: Int = 1
+    var page: Int
     
     init(atPage pageNumber: Int) {
         page = pageNumber

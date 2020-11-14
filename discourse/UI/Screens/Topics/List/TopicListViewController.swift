@@ -9,15 +9,8 @@ import UIKit
 
 class TopicListViewController: UIViewController {
     
-    @IBOutlet weak var topicsTable: UITableView! {
-        didSet {
-            topicsTable.dataSource = self
-            topicsTable.delegate = self
-            
-            let nib = UINib.init(nibName: "TopicItemCell", bundle: nil)
-            topicsTable.register(nib, forCellReuseIdentifier: "TopicItemCell")
-        }
-    }
+    @IBOutlet weak var addTopicButton: UIButton!
+    @IBOutlet weak var topicsTable: UITableView!
     
     let viewModel: TopicListViewModel
     
@@ -33,6 +26,8 @@ class TopicListViewController: UIViewController {
 
     override func viewDidLoad() {
         viewModel.fetchTopics()
+        
+        setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,15 +38,38 @@ class TopicListViewController: UIViewController {
         title = NSLocalizedString("topics.list.title", comment: "")
         
         let navbar = navigationController!.navigationBar
+        navbar.prefersLargeTitles = false
         navbar.isTranslucent = false
         navbar.backgroundColor = .white
-        navbar.shadowImage = .gradient(
+        let shadowImage: UIImage = .gradient(
             from: UIColor(named: "primaryGradientColor1")!,
             to: UIColor(named: "primaryGradientColor2")!,
             frame: CGRect(x: 0, y: 0, width: navbar.layer.frame.width, height: 8)
         )
+        navbar.shadowImage = shadowImage
+    }
+    
+    func setupUI() {
+        addTopicButton.layer.cornerRadius = addTopicButton.frame.width / 2
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(onRefreshControlPulled), for: .valueChanged)
+        topicsTable.refreshControl = refreshControl
+        
+        topicsTable.dataSource = self
+        topicsTable.delegate = self
+        
+        let nib = UINib.init(nibName: "TopicItemCell", bundle: nil)
+        topicsTable.register(nib, forCellReuseIdentifier: "TopicItemCell")
     }
 
+    @objc func onRefreshControlPulled() {
+        viewModel.refreshTopics()
+    }
+    
+    @IBAction func onAddTopicButtonTapped(_ sender: Any) {
+        viewModel.addTopicButtonTapped()
+    }
 }
 
 extension TopicListViewController: UITableViewDataSource {
@@ -60,7 +78,7 @@ extension TopicListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.topics.count
+        return viewModel.topicItemViewModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -78,7 +96,15 @@ extension TopicListViewController: UITableViewDataSource {
 }
 
 extension TopicListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.selectTopicItem(atIndex: indexPath.row)
+    }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == viewModel.topicItemViewModels.count - 1 {
+            viewModel.fetchMoreTopics()
+        }
+    }
 }
 
 extension TopicListViewController: TopicListViewDelegate {
@@ -92,5 +118,14 @@ extension TopicListViewController: TopicListViewDelegate {
 
     func onLatestPageReached() {
         //TODO: Stop calling fetchMore
+    }
+    
+    func topicItemDidChanged(atIndex index: Int) {
+        guard let visibleIndexPaths = topicsTable.indexPathsForVisibleRows else { return }
+        
+        let path = IndexPath(row: index, section: 0)
+        if visibleIndexPaths.contains(path) {
+            topicsTable.reloadRows(at: [path], with: .none)
+        }
     }
 }

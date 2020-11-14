@@ -28,6 +28,8 @@
 		D519BE9425571CF6007E3D64 /* RegisterUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D519BE9325571CF6007E3D64 /* RegisterUserResponse.swift */; };
 		D519BE9F25576900007E3D64 /* RegisterUserForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D519BE9E25576900007E3D64 /* RegisterUserForm.swift */; };
 		D51BA454254D639E0092C020 /* discourseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51BA453254D639E0092C020 /* discourseTests.swift */; };
+		D5467560255FD158008AD343 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D546755F255FD158008AD343 /* Date+Extension.swift */; };
+		D5467564255FED32008AD343 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5467563255FED32008AD343 /* String+Extension.swift */; };
 		D5698D88254D6817008018AA /* TopicItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5698D87254D6817008018AA /* TopicItemFactory.swift */; };
 		D5698D8E254D6A44008018AA /* Poster.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5698D8D254D6A44008018AA /* Poster.swift */; };
 		D5698D9B254D6EFB008018AA /* PosterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5698D9A254D6EFB008018AA /* PosterFactory.swift */; };
@@ -98,6 +100,8 @@
 		D519BE9E25576900007E3D64 /* RegisterUserForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserForm.swift; sourceTree = "<group>"; };
 		D51BA453254D639E0092C020 /* discourseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = discourseTests.swift; sourceTree = "<group>"; };
 		D51BA455254D639E0092C020 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D546755F255FD158008AD343 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		D5467563255FED32008AD343 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		D5698D85254D63D1008018AA /* discourse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = discourse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5698D87254D6817008018AA /* TopicItemFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicItemFactory.swift; sourceTree = "<group>"; };
 		D5698D8D254D6A44008018AA /* Poster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poster.swift; sourceTree = "<group>"; };
@@ -300,6 +304,8 @@
 			children = (
 				D57E4728255DDCAE003F2BB6 /* UIViewController+Extensions.swift */,
 				D5D9C156255F34FC0098033B /* UIImage+Extension.swift */,
+				D546755F255FD158008AD343 /* Date+Extension.swift */,
+				D5467563255FED32008AD343 /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -612,6 +618,7 @@
 				D593983A2555D580004AA116 /* Coordinator.swift in Sources */,
 				D5A8DA77255F127300EEA8E4 /* TopicListViewController.swift in Sources */,
 				D5AEEC692556FE3A00723515 /* RegistrationViewModel.swift in Sources */,
+				D5467564255FED32008AD343 /* String+Extension.swift in Sources */,
 				D59398392555D580004AA116 /* AppCoordinator.swift in Sources */,
 				D5698D9B254D6EFB008018AA /* PosterFactory.swift in Sources */,
 				91D223872551C94A001EDA36 /* LoginRequest.swift in Sources */,
@@ -627,6 +634,7 @@
 				D5189F1D254B45B4002B69AB /* TopicItem.swift in Sources */,
 				D587309B2556FC8E00FE6FF3 /* ErrorResponse.swift in Sources */,
 				D5698D8E254D6A44008018AA /* Poster.swift in Sources */,
+				D5467560255FD158008AD343 /* Date+Extension.swift in Sources */,
 				D593983D2555D580004AA116 /* MainViewModel.swift in Sources */,
 				D5717D1F254D845A00A22E3A /* AppDelegate+Injection.swift in Sources */,
 				D5189F32254B4893002B69AB /* HttpRequest.swift in Sources */,

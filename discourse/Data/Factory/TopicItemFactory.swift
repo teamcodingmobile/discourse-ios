@@ -25,16 +25,21 @@ class TopicItemFactory {
                 return responseTopic.lastPosterUsername == responseUser.username
             }
             
+            let date = String(responseTopic.lastPostedAt.prefix(10)).toDate()
             let lastPoster = (user != nil) ? posterFactory.create(from: user!) : nil
             
-            return TopicItem(
+            let topicItem = TopicItem(
                 id: responseTopic.id,
                 title: responseTopic.title,
+                viewsCount: responseTopic.viewsCount,
                 postCount: responseTopic.postsCount,
                 replyCount: responseTopic.replyCount,
                 lastPoster: lastPoster,
+                lastPostedAt: date,
                 pinned: responseTopic.pinned
             )
+            
+            return topicItem
         }
     }
 }

@@ -11,4 +11,8 @@ struct Poster {
     var id: Int
     var username: String
     var avatarUrl: String
+    
+    func getAvatarUrl(size: Int) -> String {
+        return avatarUrl.replacingOccurrences(of: "{size}", with: String(size))
+    }
 }

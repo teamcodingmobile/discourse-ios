@@ -19,6 +19,7 @@ class TopicsCoordinator: Coordinator {
         let topicsViewController = TopicListViewController(viewModel: viewModel)
         
         viewModel.delegate = topicsViewController
+        viewModel.coordinator = self
         
         presenter.pushViewController(topicsViewController, animated: true)
     }
@@ -27,5 +28,9 @@ class TopicsCoordinator: Coordinator {
 extension TopicsCoordinator: TopicListViewCoordinator {
     func goToDetail(ofTopic topic: TopicItem) {
         //TODO: Push topic detail
+    }
+    
+    func goToCreateTopic() {
+        //TODO: Push create topic screen
     }
 }

@@ -12,7 +12,7 @@ class PosterFactory {
         return Poster(
             id: response.id,
             username: response.username,
-            avatarUrl: response.avatarTemplate
+            avatarUrl: "https://mdiscourse.keepcoding.io" + response.avatarTemplate
         )
     }
 }
