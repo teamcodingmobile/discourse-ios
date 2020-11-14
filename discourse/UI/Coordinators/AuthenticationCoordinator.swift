@@ -7,20 +7,14 @@
 
 import UIKit
 
+protocol AuthenticationCoordinatorDelegate {
+    func onAuthenticationFlowFinished()
+}
+
 class AuthenticationCoordinator: Coordinator {
     
-    
+    var delegate: AuthenticationCoordinatorDelegate?
     let presenter: UINavigationController
-    
-    lazy var passwordRecoveryViewController: PasswordRecoveryViewController = {
-        let viewModel = PasswordRecoveryViewModel()
-        let viewController = PasswordRecoveryViewController(viewModel: viewModel)
-        
-        viewModel.delegate = viewController
-        viewModel.coordinator = self
-        
-        return viewController
-    }()
     
     init(presenter: UINavigationController) {
         self.presenter = presenter
@@ -37,7 +31,7 @@ class AuthenticationCoordinator: Coordinator {
     }
 }
 
-extension AuthenticationCoordinator: MainCoordinatorDelegate, PasswordRecoveryViewCoordinator {
+extension AuthenticationCoordinator: MainCoordinatorDelegate {
     func goToRegistration() {
         let viewModel = RegistrationViewModel()
         let viewController = RegistrationViewController(viewModel: viewModel)
@@ -49,11 +43,39 @@ extension AuthenticationCoordinator: MainCoordinatorDelegate, PasswordRecoveryVi
     }
     
     func goToLogin() {
-        //TODO: Push LoginViewController
+        let viewModel = LoginViewModel()
+        let viewController = LoginViewController(viewModel: viewModel)
+        
+        viewModel.delegate = viewController
+        viewModel.coordinatorDelegate = self
+        
+        presenter.pushViewController(viewController, animated: true)
     }
 }
 
-extension AuthenticationCoordinator: RegistrationViewCoordinator {
+extension AuthenticationCoordinator: PasswordRecoveryCoordinatorDelegate {
+    func backToLogin() {
+        presenter.popViewController(animated: true)
+    }
+}
+
+extension AuthenticationCoordinator: LoginCoordinatorDelegate {
+    func isLogged() {
+        delegate?.onAuthenticationFlowFinished()
+    }
+    
+    func goToRecoverPassword() {
+        let viewModel = PasswordRecoveryViewModel()
+        let viewController = PasswordRecoveryViewController(viewModel: viewModel)
+        
+        viewModel.delegate = viewController
+        viewModel.coordinator = self
+        
+        presenter.pushViewController(viewController, animated: true)
+    }
+}
+
+extension AuthenticationCoordinator: RegistrationCoordinatorDelegate {
     func onSuccessRegistration() {
         //TODO: Go to login
     }

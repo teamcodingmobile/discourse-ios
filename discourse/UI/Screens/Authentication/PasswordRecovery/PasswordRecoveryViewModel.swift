@@ -8,8 +8,8 @@
 import Foundation
 import Resolver
 
-protocol PasswordRecoveryViewCoordinator {
-    func goToLogin()
+protocol PasswordRecoveryCoordinatorDelegate {
+    func backToLogin()
 }
 
 protocol PasswordRecoveryViewDelegate {
@@ -22,7 +22,7 @@ protocol PasswordRecoveryViewDelegate {
 
 class PasswordRecoveryViewModel {
     var delegate: PasswordRecoveryViewDelegate?
-    var coordinator: PasswordRecoveryViewCoordinator?
+    var coordinator: PasswordRecoveryCoordinatorDelegate?
     @LazyInjected var formValidator: FormValidator
     @LazyInjected var dataClient: DataClient
     
@@ -43,6 +43,6 @@ class PasswordRecoveryViewModel {
     }
     
     func goToLogin() {
-        coordinator?.goToLogin()
+        coordinator?.backToLogin()
     }
 }

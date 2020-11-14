@@ -16,7 +16,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
             endingLineNumber = "63"
-            landmarkName = "login(withUser:onSuccess:onError:)"
+            landmarkName = "login(withData:onSuccess:onError:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -110,8 +110,8 @@
             filePath = "discourse/UI/Screens/Authentication/Registration/RegistrationViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
             landmarkName = "keyboardDidShow(notification:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -126,8 +126,8 @@
             filePath = "discourse/UI/Screens/Authentication/Registration/RegistrationViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "keyboardDidShow(notification:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -142,8 +142,10 @@
             filePath = "discourse/UI/Coordinators/AuthenticationCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49">
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "goToRegistration()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -447,6 +449,22 @@
             startingLineNumber = "100"
             endingLineNumber = "100"
             landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A35FC1BF-671F-4109-9FC8-602C22E78765"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "discourse/UI/Screens/Authentication/Login/LoginViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "keyboardDidShow(notification:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

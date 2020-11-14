@@ -57,10 +57,10 @@ final class HttpClient: DataClient {
         }, onError: error)
     }
 
-    func login(withUser username: String, onSuccess success: @escaping () -> (), onError error: ((Error?) -> ())?) {
-        send(request: LoginRequest(username: username), onSuccess: { [weak self] response in
+    func login(withData data: LoginForm, onSuccess success: @escaping () -> (), onError error: ((Error?) -> ())?) {
+        send(request: LoginRequest(data: data), onSuccess: { [weak self] response in
             if self != nil {
-                self?.authService.logIn(user: username)
+                self?.authService.logIn(user: data.username!)
                 success()
             }
         }, onError: error)
