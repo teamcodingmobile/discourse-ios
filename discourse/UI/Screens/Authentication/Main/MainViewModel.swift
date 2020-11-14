@@ -8,19 +8,19 @@
 import Foundation
 
 protocol MainCoordinatorDelegate: class {
-    func onRegisterButtonTapped()
+    func goToRegistration()
     
-    func onLoginButtonTapped()
+    func goToLogin()
 }
 
 class MainViewModel {
     weak var coordinatorDelegate: MainCoordinatorDelegate?
     
     func registerButtonTapped() {
-        self.coordinatorDelegate?.onRegisterButtonTapped()
+        self.coordinatorDelegate?.goToRegistration()
     }
     
     func loginButtonTapped() {
-        self.coordinatorDelegate?.onLoginButtonTapped()
+        self.coordinatorDelegate?.goToLogin()
     }
 }

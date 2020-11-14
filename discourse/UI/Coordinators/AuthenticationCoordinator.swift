@@ -10,6 +10,16 @@ import UIKit
 class AuthenticationCoordinator: Coordinator {
     let presenter: UINavigationController
     
+    lazy var passwordRecoveryViewController: PasswordRecoveryViewController = {
+        let viewModel = PasswordRecoveryViewModel()
+        let viewController = PasswordRecoveryViewController(viewModel: viewModel)
+        
+        viewModel.delegate = viewController
+        viewModel.coordinator = self
+        
+        return viewController
+    }()
+    
     init(presenter: UINavigationController) {
         self.presenter = presenter
     }
@@ -20,12 +30,12 @@ class AuthenticationCoordinator: Coordinator {
         
         mainViewModel.coordinatorDelegate = self
         
-        presenter.pushViewController(mainViewController, animated: true)
+        presenter.pushViewController(passwordRecoveryViewController, animated: true)
     }
 }
 
-extension AuthenticationCoordinator: MainCoordinatorDelegate {
-    func onRegisterButtonTapped() {
+extension AuthenticationCoordinator: MainCoordinatorDelegate, PasswordRecoveryViewCoordinator {
+    func goToRegistration() {
         let viewModel = RegistrationViewModel()
         let viewController = RegistrationViewController(viewModel: viewModel)
         
@@ -35,7 +45,7 @@ extension AuthenticationCoordinator: MainCoordinatorDelegate {
         presenter.pushViewController(viewController, animated: true)
     }
     
-    func onLoginButtonTapped() {
+    func goToLogin() {
         //TODO: Push LoginViewController
     }
 }

@@ -19,4 +19,6 @@ protocol DataClient {
     func login(withUser username: String, onSuccess success: @escaping() -> (), onError error: ((Error?)-> ())?) -> Void
     
     func registerUser(withData data: RegisterUserForm, onSuccess success: @escaping () -> (), onError error: ((Error?) -> ())?) -> Void
+    
+    func recoverPassword(withData data: RecoverPasswordForm, onSuccess success: @escaping() -> (), onError error: ((Error?)-> ())?) -> Void
 }

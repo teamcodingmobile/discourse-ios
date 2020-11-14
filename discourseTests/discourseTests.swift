@@ -67,6 +67,7 @@ class discourseTests: XCTestCase {
 
         wait(for: [expectation], timeout: 10.0)
     }
+    
     func testLogin() throws {
         let expectation = XCTestExpectation(description: "Get login")
         
@@ -78,7 +79,21 @@ class discourseTests: XCTestCase {
             XCTFail("Request failed")
         }
         
+        wait(for: [expectation], timeout: 10.0)
+    }
+    
+    func testPasswordRecovery() throws {
+        let expectation = XCTestExpectation(description: "Password recovery")
         
+        let client = Resolver.resolve(DataClient.self)
+        let data = RecoverPasswordForm(username: "grb")
+        
+        client.recoverPassword(withData: data) {
+            expectation.fulfill()
+        } onError: { (error) in
+            XCTFail("Request failed")
+        }
+
         wait(for: [expectation], timeout: 10.0)
     }
 
