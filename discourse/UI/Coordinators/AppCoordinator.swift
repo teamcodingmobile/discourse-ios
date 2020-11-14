@@ -46,8 +46,16 @@ class AppCoordinator: Coordinator {
         addChildCoordinator(topicsCoordinator)
         topicsCoordinator.start()
         
+        let searchNavigationController = UINavigationController()
+        searchNavigationController.tabBarItem.title = NSLocalizedString("Search", comment: "")
+        searchNavigationController.tabBarItem.image = UIImage(systemName: "magnifyingglass.circle")
+        let searchCoordinator = SearchCoordinator(presenter: searchNavigationController)
+        
+        addChildCoordinator(searchCoordinator)
+        searchCoordinator.start()
+        
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [topicsNavigationController]
+        tabBarController.viewControllers = [topicsNavigationController, searchNavigationController]
         
         window.rootViewController = tabBarController
         window.makeKeyAndVisible()

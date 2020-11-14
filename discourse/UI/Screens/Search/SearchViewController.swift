@@ -11,6 +11,9 @@ class SearchViewController: UIViewController {
     
     let viewModel: SearchViewModel
     
+    @IBOutlet weak var segmentSelector: UISegmentedControl!
+    @IBOutlet weak var searchTable: UITableView!
+    
     init(viewModel: SearchViewModel) {
         self.viewModel = viewModel
         
@@ -35,13 +38,19 @@ class SearchViewController: UIViewController {
         navbar.shadowImage = UIImage()
         navbar.setBackgroundImage(nil, for: .default)
         title = "Search"
+        let shadowImage: UIImage = .gradient(
+            from: UIColor(named: "primaryGradientColor1")!,
+            to: UIColor(named: "primaryGradientColor2")!,
+            frame: CGRect(x: 0, y: 0, width: navbar.layer.frame.width, height: 8)
+        )
+        navbar.shadowImage = shadowImage
         
         navigationItem.searchController = UISearchController(searchResultsController: nil)
         navigationItem.hidesSearchBarWhenScrolling = false
         
-        navbar.prefersLargeTitles = true
+    }
+    
+    func submit(term: String){
         
     }
-
-
 }

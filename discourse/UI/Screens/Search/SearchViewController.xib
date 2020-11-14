@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="discourse" customModuleProvider="target">
             <connections>
+                <outlet property="searchTable" destination="h1c-55-uZO" id="8jy-pb-Plv"/>
+                <outlet property="segmentSelector" destination="jV6-he-JgJ" id="5tu-RV-0LB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,9 +20,36 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h1c-55-uZO">
+                    <rect key="frame" x="0.0" y="106" width="414" height="756"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jV6-he-JgJ">
+                    <rect key="frame" x="38" y="61" width="338" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="eef-ia-WGw"/>
+                    </constraints>
+                    <segments>
+                        <segment title="All"/>
+                        <segment title="Topics"/>
+                        <segment title="Posts"/>
+                        <segment title="Users"/>
+                    </segments>
+                </segmentedControl>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <point key="canvasLocation" x="139" y="129"/>
+            <constraints>
+                <constraint firstItem="jV6-he-JgJ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="17" id="060-4b-UjC"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jV6-he-JgJ" secondAttribute="trailing" constant="38" id="84g-E2-JcA"/>
+                <constraint firstItem="h1c-55-uZO" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="I69-p8-dDM"/>
+                <constraint firstItem="h1c-55-uZO" firstAttribute="top" secondItem="jV6-he-JgJ" secondAttribute="bottom" constant="17" id="IOe-Eq-HuH"/>
+                <constraint firstItem="h1c-55-uZO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="RXA-tB-WUI"/>
+                <constraint firstItem="jV6-he-JgJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="38" id="xlI-eX-2xd"/>
+                <constraint firstItem="h1c-55-uZO" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="yp4-oM-EFA"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="128.57142857142856"/>
         </view>
     </objects>
     <resources>

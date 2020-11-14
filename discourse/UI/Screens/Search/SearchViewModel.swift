@@ -12,5 +12,8 @@ class SearchViewModel{
     
     @LazyInjected var dataClient: DataClient
     
+    func search(term: String){
+        dataClient.
+    }
     
 }
