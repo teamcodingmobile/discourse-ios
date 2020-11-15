@@ -51,8 +51,8 @@ final class HttpClient: DataClient {
         }, onError: error)
     }
     
-    func createTopic(withTitle title: String, onSuccess success: @escaping () -> (), onError error: ((Error?) -> ())?) {
-        send(request: CreateTopicRequest(withTitle: title), onSuccess: { (_) in
+    func createTopic(withData data: CreateTopicForm, onSuccess success: @escaping () -> (), onError error: ((Error?) -> ())?) {
+        send(request: CreateTopicRequest(withData: data), onSuccess: { (_) in
             success()
         }, onError: error)
     }
