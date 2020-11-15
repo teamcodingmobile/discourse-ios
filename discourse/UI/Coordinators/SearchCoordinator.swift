@@ -16,8 +16,11 @@ class SearchCoordinator: Coordinator {
     
     override func start() {
         let viewModel = SearchViewModel()
-        let topicsViewController = SearchViewController(viewModel: viewModel)
+        let searchViewController = SearchViewController(viewModel: viewModel)
         
-        presenter.pushViewController(topicsViewController, animated: true)
+        viewModel.delegate = searchViewController
+        viewModel.coordinator = self
+        
+        presenter.pushViewController(searchViewController, animated: true)
     }
 }

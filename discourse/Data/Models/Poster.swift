@@ -9,6 +9,7 @@ import Foundation
 
 struct Poster: Codable {
     var id: Int
+    var name: String?
     var username: String
     var avatarUrl: String
     

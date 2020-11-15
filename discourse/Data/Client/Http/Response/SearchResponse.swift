@@ -30,23 +30,17 @@ struct SearchPostsResponse: Codable {
 struct SearchTopicsResponse: Codable {
     var id: Int
     var title: String
-    var viewsCount: Int
     var postsCount: Int
     var replyCount: Int
-    var lastPoster: Poster?
     var lastPostedAt: String
-    var excerpt: String?
     var pinned: Bool
     
     enum CodingKeys: String, CodingKey {
         case id
         case title
-        case viewsCount = "views_count"
         case postsCount = "posts_count"
         case replyCount = "reply_count"
-        case lastPoster = "last_poster"
         case lastPostedAt = "last_posted_at"
-        case excerpt
         case pinned
     }
 
@@ -54,11 +48,13 @@ struct SearchTopicsResponse: Codable {
 
 struct SearchUsersResponse: Codable{
     var id : Int
+    var name: String
     var username: String
     var avatarTemplate: String
     
     enum CodingKeys: String, CodingKey {
         case id
+        case name
         case username
         case avatarTemplate = "avatar_template"
         

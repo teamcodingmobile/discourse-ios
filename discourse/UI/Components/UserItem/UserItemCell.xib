@@ -11,40 +11,39 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserItemCell" rowHeight="59" id="KGk-i7-Jjw" customClass="UserItemCell" customModule="discourse" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserItemCell" rowHeight="63" id="KGk-i7-Jjw" customClass="UserItemCell" customModule="discourse" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ovw-wh-esh" userLabel="containerView">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre de usuario" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N1W-aD-8fH">
-                                <rect key="frame" x="73" y="21" width="235" height="17"/>
+                                <rect key="frame" x="73" y="24.5" width="235" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3z5-zO-C16">
-                                <rect key="frame" x="12" y="8.5" width="42" height="42"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dHy-jf-coY">
+                                <rect key="frame" x="12" y="12" width="42" height="42"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="42" id="I2K-qx-3xn"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="aSI-p4-uoy"/>
-                                    <constraint firstAttribute="height" constant="42" id="dFM-U6-Wjq"/>
-                                    <constraint firstAttribute="width" constant="42" id="ibS-ZH-wbN"/>
+                                    <constraint firstAttribute="height" constant="42" id="cAZ-jp-uoT"/>
+                                    <constraint firstAttribute="width" constant="42" id="oRg-9L-LlV"/>
                                 </constraints>
-                            </view>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="3z5-zO-C16" firstAttribute="centerY" secondItem="ovw-wh-esh" secondAttribute="centerY" id="Hqi-qL-RtC"/>
-                            <constraint firstItem="N1W-aD-8fH" firstAttribute="leading" secondItem="3z5-zO-C16" secondAttribute="trailing" constant="19" id="QIL-IP-pKy"/>
+                            <constraint firstItem="dHy-jf-coY" firstAttribute="leading" secondItem="ovw-wh-esh" secondAttribute="leading" constant="12" id="QqT-KP-drE"/>
                             <constraint firstAttribute="trailing" secondItem="N1W-aD-8fH" secondAttribute="trailing" constant="12" id="XHH-4R-Hnr"/>
-                            <constraint firstItem="3z5-zO-C16" firstAttribute="leading" secondItem="ovw-wh-esh" secondAttribute="leading" constant="12" id="ecy-nv-dAX"/>
+                            <constraint firstAttribute="bottom" secondItem="dHy-jf-coY" secondAttribute="bottom" constant="12" id="dRT-EL-0Y1"/>
                             <constraint firstItem="N1W-aD-8fH" firstAttribute="centerY" secondItem="ovw-wh-esh" secondAttribute="centerY" id="gk6-Gz-lNT"/>
+                            <constraint firstItem="dHy-jf-coY" firstAttribute="top" secondItem="ovw-wh-esh" secondAttribute="top" constant="12" id="hQK-s1-ANj"/>
+                            <constraint firstItem="N1W-aD-8fH" firstAttribute="leading" secondItem="dHy-jf-coY" secondAttribute="trailing" constant="19" id="ivq-MJ-CXd"/>
+                            <constraint firstItem="dHy-jf-coY" firstAttribute="centerY" secondItem="ovw-wh-esh" secondAttribute="centerY" id="mMQ-b5-bGb"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -56,7 +55,12 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <point key="canvasLocation" x="137.68115942028987" y="97.433035714285708"/>
+            <connections>
+                <outlet property="containerView" destination="ovw-wh-esh" id="b5G-AT-tQP"/>
+                <outlet property="userImage" destination="dHy-jf-coY" id="3NP-dG-Al7"/>
+                <outlet property="userName" destination="N1W-aD-8fH" id="tDY-lK-Oca"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="98.772321428571431"/>
         </tableViewCell>
     </objects>
     <resources>

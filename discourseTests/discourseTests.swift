@@ -74,7 +74,7 @@ class discourseTests: XCTestCase {
         
         client.getSearch(withTerm: "prueba") { (search) in
             XCTAssertNotNil(search)
-            XCTAssertTrue((search as Any) is SearchResponse)
+            XCTAssertTrue((search as Any) is [TopicItem], [Post], [Poster])
             expectation.fulfill()
             
         }onError: { (_) in

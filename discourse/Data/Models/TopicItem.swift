@@ -14,7 +14,7 @@ struct TopicItem {
     var postCount: Int
     var replyCount: Int
     var lastPoster: Poster?
-    var lastPostedAt: Date?
+    var lastPostedAt: Date
     var excerpt: String?
     var pinned: Bool
 }

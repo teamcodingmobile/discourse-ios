@@ -26,6 +26,8 @@ final class HttpClient: DataClient {
     @Injected var authService: AuthService
     
     @Injected var topicItemFactory: TopicItemFactory
+    @Injected var postFactory: PostFactory
+    @Injected var posterFactory: PosterFactory
     
     lazy var session: URLSession = {
         let configuration = URLSessionConfiguration.default
@@ -72,11 +74,15 @@ final class HttpClient: DataClient {
         }, onError: error)
     }
 
-    func getSearch(withTerm word: String, onSuccess success: @escaping (SearchResponse) -> (), onError error: ((Error?) -> ())?) ->Void {
+    func getSearch(withTerm word: String, onSuccess success: @escaping ([TopicItem], [Post], [Poster]) -> (), onError error: ((Error?) -> ())?) ->Void {
         send(request: GetSearchRequest(withTerm: word), onSuccess: { [weak self ] response in
-            if self != nil {
-                success(response!)
-            }
+            
+                success(
+                    self!.topicItemFactory.createSearch(from: response?.topics),
+                    self!.postFactory.createSearch(from: response?.posts),
+                    self!.posterFactory.createSearch(from: response?.users)
+                )
+            
         }, onError: error)
     }
     

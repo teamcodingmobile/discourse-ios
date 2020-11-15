@@ -5,16 +5,31 @@
 //  Created by Adrian Arcalá Ocón on 14/11/20.
 //
 
-import Foundation
+import UIKit
+protocol UserItemViewDelegate {
+    func userImageDidLoad(user: Poster)
+}
+
 class UserItemViewModel{
+    
+    var delegate : UserItemViewDelegate?
     let user: Poster
+    var userImage: UIImage?
     
     init(user: Poster) {
         
         self.user = user
         
-        let id = user.id
-        let poster = user.username
-        let avatarUrl = user.avatarUrl
+        guard let userImageUrl = URL(string: user.getAvatarUrl(size: 42)) else { return }
+        
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            guard let userImageData = try? Data(contentsOf: userImageUrl) else { return }
+            
+            self?.userImage = UIImage(data: userImageData)
+            
+            DispatchQueue.main.async {
+                self?.delegate?.userImageDidLoad(user: user)
+            }
+        }
     }
 }

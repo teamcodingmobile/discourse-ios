@@ -11,6 +11,7 @@
 		6185EED3A8D66C6608C39B44 /* Pods_discourse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5554A64EFB125220BEEFBC0 /* Pods_discourse.framework */; };
 		91130AA0255851A700D72EBD /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91130A9F255851A700D72EBD /* SearchResponse.swift */; };
 		91130AAC255855FB00D72EBD /* GetSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91130AAB255855FB00D72EBD /* GetSearchRequest.swift */; };
+		91225C7125615E0700BD72AA /* PostFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91225C7025615E0700BD72AA /* PostFactory.swift */; };
 		91733D4B255C5B9600239562 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91733D4A255C5B9600239562 /* LoginViewModel.swift */; };
 		91733D4F255C5BBE00239562 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91733D4E255C5BBE00239562 /* LoginViewController.swift */; };
 		91733D53255C5BFC00239562 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91733D52255C5BFC00239562 /* LoginViewController.xib */; };
@@ -109,6 +110,7 @@
 		7CFB6EFCF9B29B31AF27F472 /* Pods-discourseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-discourseTests.release.xcconfig"; path = "Target Support Files/Pods-discourseTests/Pods-discourseTests.release.xcconfig"; sourceTree = "<group>"; };
 		91130A9F255851A700D72EBD /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		91130AAB255855FB00D72EBD /* GetSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSearchRequest.swift; sourceTree = "<group>"; };
+		91225C7025615E0700BD72AA /* PostFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFactory.swift; sourceTree = "<group>"; };
 		91733D4A255C5B9600239562 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		91733D4E255C5BBE00239562 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		91733D52255C5BFC00239562 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -229,7 +231,6 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-
 		9194ACC92560690800C7023B /* UserItem */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,6 +397,7 @@
 			children = (
 				D5698D87254D6817008018AA /* TopicItemFactory.swift */,
 				D5698D9A254D6EFB008018AA /* PosterFactory.swift */,
+				91225C7025615E0700BD72AA /* PostFactory.swift */,
 			);
 			path = Factory;
 			sourceTree = "<group>";
@@ -789,6 +791,7 @@
 				D5698D8E254D6A44008018AA /* Poster.swift in Sources */,
 				D5467560255FD158008AD343 /* Date+Extension.swift in Sources */,
 				91733D4B255C5B9600239562 /* LoginViewModel.swift in Sources */,
+				91225C7125615E0700BD72AA /* PostFactory.swift in Sources */,
 				D5CC6697256069B7008DC385 /* LoginForm.swift in Sources */,
 				D593983D2555D580004AA116 /* MainViewModel.swift in Sources */,
 				D5717D1F254D845A00A22E3A /* AppDelegate+Injection.swift in Sources */,

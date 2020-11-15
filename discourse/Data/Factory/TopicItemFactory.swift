@@ -48,18 +48,19 @@ class TopicItemFactory {
         
         return response.map { (responseTopic) -> TopicItem in
             
-            
+            let date = String(responseTopic.lastPostedAt.prefix(10)).toDate()
             let topicItem = TopicItem(
                 id: responseTopic.id,
                 title: responseTopic.title,
-                viewsCount: responseTopic.viewsCount,
                 postCount: responseTopic.postsCount,
                 replyCount: responseTopic.replyCount,
+                lastPostedAt: date,
                 pinned: responseTopic.pinned
             )
             
             return topicItem
         }
     }
+    
     
 }

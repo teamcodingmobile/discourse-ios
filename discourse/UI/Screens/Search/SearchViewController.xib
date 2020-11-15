@@ -36,6 +36,9 @@
                         <segment title="Posts"/>
                         <segment title="Users"/>
                     </segments>
+                    <connections>
+                        <action selector="segmentSelectorValueChanged:" destination="-1" eventType="valueChanged" id="OIT-s2-tGL"/>
+                    </connections>
                 </segmentedControl>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
