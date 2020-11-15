@@ -109,8 +109,9 @@ extension TopicListViewController: UITableViewDelegate {
 
 extension TopicListViewController: TopicListViewDelegate {
     func onTopicsDidLoad() {
-        topicsTable.refreshControl?.endRefreshing()
         topicsTable.reloadData()
+        topicsTable.refreshControl?.endRefreshing()
+        topicsTable.setNeedsLayout()
     }
     
     func onGetTopicsError() {

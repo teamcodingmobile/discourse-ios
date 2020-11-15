@@ -167,12 +167,11 @@ extension SearchViewController: UITableViewDataSource {
 
 extension SearchViewController: SearchViewDelegate {
     func onSearchDidLoad() {
-        
         searchTable.reloadData()
     }
     
     func resultDidChange(index: IndexPath) {
-        searchTable.reloadRows(at: [index], with: .none)
+        searchTable.reloadData()
     }
     
     func onGetSearchError() {

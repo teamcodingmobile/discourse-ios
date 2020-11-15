@@ -9,10 +9,12 @@ import Foundation
 import Resolver
 
 class TopicItemFactory {
-    @LazyInjected var posterFactory: PosterFactory
+    var posterFactory: PosterFactory
+    var postFactory: PostFactory
     
-    init(posterFactory: PosterFactory) {
+    init(posterFactory: PosterFactory, postFactory: PostFactory) {
         self.posterFactory = posterFactory
+        self.postFactory = postFactory
     }
     
     func create(from response: GetLatestTopicsResponse?) -> [TopicItem] {
@@ -69,5 +71,22 @@ class TopicItemFactory {
             
             return topicItem
         }
+    }
+    
+    func create(from response: GetTopicResponse) -> TopicItem {
+        let creator = posterFactory.create(from: response.details.creator)
+        let posts = postFactory.create(from: response.postStream.posts)
+        
+        return TopicItem(
+            id: response.id,
+            title: response.title,
+            viewsCount: response.viewsCount,
+            postCount: response.postsCount,
+            replyCount: response.replyCount,
+            author: creator,
+            lastPostedAt: response.createdAt.toDate(),
+            pinned: response.pinned,
+            posts: posts
+        )
     }
 }

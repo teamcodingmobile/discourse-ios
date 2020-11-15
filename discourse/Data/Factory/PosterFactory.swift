@@ -39,4 +39,12 @@ class PosterFactory {
             avatarUrl: "https://mdiscourse.keepcoding.io" + response.avatarTemplate
         )
     }
+    
+    func create(from response: GetTopicResponseCreator) -> Poster {
+        return Poster(
+            id: response.id,
+            username: response.username,
+            avatarUrl: "https://mdiscourse.keepcoding.io" + response.avatarTemplate
+        )
+    }
 }

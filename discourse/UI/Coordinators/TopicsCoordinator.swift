@@ -29,7 +29,12 @@ class TopicsCoordinator: Coordinator {
 
 extension TopicsCoordinator: TopicListViewCoordinator {
     func goToDetail(ofTopic topic: TopicItem) {
-        //TODO: Push topic detail
+        let viewModel = TopicDetailViewModel(topicId: topic.id)
+        let viewController = TopicDetailViewController(viewModel: viewModel)
+        
+        viewModel.delegate =  viewController
+        
+        presenter.pushViewController(viewController, animated: true)
     }
     
     func goToCreateTopic() {

@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TopicListViewController" customModule="discourse" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TopicDetailViewController" customModule="discourse" customModuleProvider="target">
             <connections>
-                <outlet property="addTopicButton" destination="cQR-Mn-eeJ" id="VSK-QN-ndU"/>
-                <outlet property="topicsTable" destination="jdc-GO-H3z" id="0al-ny-chF"/>
+                <outlet property="replyButton" destination="pNS-lQ-87x" id="V59-rp-Q70"/>
+                <outlet property="tableView" destination="8cs-zc-791" id="NlO-PO-Drf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,42 +22,40 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jdc-GO-H3z" userLabel="topicsTable">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8cs-zc-791" userLabel="tableView">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <color key="separatorColor" name="defaultBackground"/>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQR-Mn-eeJ" userLabel="addTopicButton">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pNS-lQ-87x" userLabel="replyButton">
                     <rect key="frame" x="344" y="792" width="54" height="54"/>
                     <color key="backgroundColor" name="PrimaryColor"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="54" id="Cc7-27-cGf"/>
-                        <constraint firstAttribute="height" constant="54" id="jJY-aP-y1a"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="54" id="7EL-UZ-Llo"/>
+                        <constraint firstAttribute="height" constant="54" id="87b-RB-uJS"/>
+                        <constraint firstAttribute="width" constant="54" id="Cov-yQ-UNw"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="54" id="vt3-OF-nHE"/>
                     </constraints>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <state key="normal" image="plus" catalog="system">
+                    <state key="normal" image="arrowshape.turn.up.left" catalog="system">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
-                    <connections>
-                        <action selector="onAddTopicButtonTapped:" destination="-1" eventType="touchUpInside" id="66v-Rp-kSc"/>
-                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="defaultBackground"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cQR-Mn-eeJ" secondAttribute="trailing" constant="16" id="3VI-ZF-MkA"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="cQR-Mn-eeJ" secondAttribute="bottom" constant="16" id="51f-EK-cdy"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="jdc-GO-H3z" secondAttribute="bottom" id="5JJ-zg-Tlb"/>
-                <constraint firstItem="jdc-GO-H3z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="L4x-dG-KAA"/>
-                <constraint firstItem="jdc-GO-H3z" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Rqh-CW-uPm"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jdc-GO-H3z" secondAttribute="trailing" id="epd-6f-p4K"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="pNS-lQ-87x" secondAttribute="bottom" constant="16" id="9Lc-NW-aGt"/>
+                <constraint firstItem="8cs-zc-791" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="AsM-28-xYZ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8cs-zc-791" secondAttribute="trailing" id="BKY-Hn-wTe"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="8cs-zc-791" secondAttribute="bottom" id="P2g-4k-vFC"/>
+                <constraint firstItem="8cs-zc-791" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="m7m-Aq-FPn"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pNS-lQ-87x" secondAttribute="trailing" constant="16" id="rLC-O3-gKN"/>
             </constraints>
-            <point key="canvasLocation" x="137.68115942028987" y="152.67857142857142"/>
+            <point key="canvasLocation" x="137.68115942028987" y="146.65178571428569"/>
         </view>
     </objects>
     <resources>
-        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="arrowshape.turn.up.left" catalog="system" width="128" height="106"/>
         <namedColor name="PrimaryColor">
             <color red="0.011764705882352941" green="0.68627450980392157" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

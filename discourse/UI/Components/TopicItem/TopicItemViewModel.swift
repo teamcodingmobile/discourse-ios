@@ -19,10 +19,10 @@ class TopicItemViewModel {
     
     init(topic: TopicItem) {
         self.topic = topic
-
-        guard let lastPoster = topic.lastPoster else { return }
         
-        guard let posterImageUrl = URL(string: lastPoster.getAvatarUrl(size: 42)) else { return }
+        guard let poster = topic.author ?? topic.lastPoster else { return }
+        
+        guard let posterImageUrl = URL(string: poster.getAvatarUrl(size: 42)) else { return }
         
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let posterImageData = try? Data(contentsOf: posterImageUrl) else { return }

@@ -17,12 +17,14 @@ struct SearchPostsResponse: Codable {
     var username: String
     var avatarUrl: String
     var blurb: String
+    var createdAt: String
     
     enum CodingKeys: String, CodingKey {
         case id
         case username
         case avatarUrl = "avatar_template"
         case blurb
+        case createdAt = "created_at"
     }
     
 }
