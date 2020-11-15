@@ -10,10 +10,10 @@ import Foundation
 struct CreateTopicRequest: HttpRequest {
     typealias Response = CreateTopicResponse
     
-    var title: String
+    var data: CreateTopicForm
     
-    init(withTitle title: String) {
-        self.title = title
+    init(withData data: CreateTopicForm) {
+        self.data = data
     }
     
     var method: Method {
@@ -26,8 +26,8 @@ struct CreateTopicRequest: HttpRequest {
     
     var body: [String : Any] {
         return [
-            "title": title,
-            "raw": title
+            "title": data.title!,
+            "raw": data.title!
         ]
     }
     

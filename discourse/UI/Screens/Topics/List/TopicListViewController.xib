@@ -28,11 +28,11 @@
                     <color key="separatorColor" name="defaultBackground"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQR-Mn-eeJ" userLabel="addTopicButton">
-                    <rect key="frame" x="334" y="782" width="64" height="64"/>
+                    <rect key="frame" x="350" y="798" width="48" height="48"/>
                     <color key="backgroundColor" name="PrimaryColor"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="64" id="Cc7-27-cGf"/>
-                        <constraint firstAttribute="height" constant="64" id="jJY-aP-y1a"/>
+                        <constraint firstAttribute="width" constant="48" id="Cc7-27-cGf"/>
+                        <constraint firstAttribute="height" constant="48" id="jJY-aP-y1a"/>
                     </constraints>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" image="plus" catalog="system">

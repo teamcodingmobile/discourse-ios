@@ -72,6 +72,10 @@
 		D5AEEC692556FE3A00723515 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AEEC682556FE3A00723515 /* RegistrationViewModel.swift */; };
 		D5BE651825560A8B000BBF66 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5BE651A25560A8B000BBF66 /* Localizable.strings */; };
 		D5CC6697256069B7008DC385 /* LoginForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CC6696256069B7008DC385 /* LoginForm.swift */; };
+		D5CC66A12561393D008DC385 /* CreateTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CC669F2561393D008DC385 /* CreateTopicViewController.swift */; };
+		D5CC66A22561393D008DC385 /* CreateTopicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5CC66A02561393D008DC385 /* CreateTopicViewController.xib */; };
+		D5CC66A6256139E5008DC385 /* CreateTopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CC66A5256139E5008DC385 /* CreateTopicViewModel.swift */; };
+		D5CC66AA25613A0A008DC385 /* CreateTopicForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CC66A925613A0A008DC385 /* CreateTopicForm.swift */; };
 		D5D9C157255F34FC0098033B /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D9C156255F34FC0098033B /* UIImage+Extension.swift */; };
 		D5E417E52559FBDF00FD84AC /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E417E42559FBDF00FD84AC /* Form.swift */; };
 		D5E417EA255B141000FD84AC /* TextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E417E9255B141000FD84AC /* TextInput.swift */; };
@@ -162,6 +166,10 @@
 		D5BE651925560A8B000BBF66 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D5BE651D25560A8F000BBF66 /* es */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; lineEnding = 0; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D5CC6696256069B7008DC385 /* LoginForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginForm.swift; sourceTree = "<group>"; };
+		D5CC669F2561393D008DC385 /* CreateTopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTopicViewController.swift; sourceTree = "<group>"; };
+		D5CC66A02561393D008DC385 /* CreateTopicViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateTopicViewController.xib; sourceTree = "<group>"; };
+		D5CC66A5256139E5008DC385 /* CreateTopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTopicViewModel.swift; sourceTree = "<group>"; };
+		D5CC66A925613A0A008DC385 /* CreateTopicForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTopicForm.swift; sourceTree = "<group>"; };
 		D5D9C156255F34FC0098033B /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		D5E417E42559FBDF00FD84AC /* Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
 		D5E417E9255B141000FD84AC /* TextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInput.swift; sourceTree = "<group>"; };
@@ -418,6 +426,7 @@
 		D5A8DA73255F124B00EEA8E4 /* Topics */ = {
 			isa = PBXGroup;
 			children = (
+				D5CC669E25613918008DC385 /* Create */,
 				D5A8DA74255F125200EEA8E4 /* List */,
 			);
 			path = Topics;
@@ -453,6 +462,16 @@
 			path = Registration;
 			sourceTree = "<group>";
 		};
+		D5CC669E25613918008DC385 /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				D5CC669F2561393D008DC385 /* CreateTopicViewController.swift */,
+				D5CC66A02561393D008DC385 /* CreateTopicViewController.xib */,
+				D5CC66A5256139E5008DC385 /* CreateTopicViewModel.swift */,
+			);
+			path = Create;
+			sourceTree = "<group>";
+		};
 		D5E417D52559ECA700FD84AC /* Forms */ = {
 			isa = PBXGroup;
 			children = (
@@ -460,6 +479,7 @@
 				D5E417E42559FBDF00FD84AC /* Form.swift */,
 				D55AFB48255EE83A00AFEE21 /* RecoverPasswordForm.swift */,
 				D5CC6696256069B7008DC385 /* LoginForm.swift */,
+				D5CC66A925613A0A008DC385 /* CreateTopicForm.swift */,
 			);
 			path = Forms;
 			sourceTree = "<group>";
@@ -579,6 +599,7 @@
 				D5BE651825560A8B000BBF66 /* Localizable.strings in Resources */,
 				D5189EEA254B2E73002B69AB /* LaunchScreen.storyboard in Resources */,
 				D5A8DA78255F127300EEA8E4 /* TopicListViewController.xib in Resources */,
+				D5CC66A22561393D008DC385 /* CreateTopicViewController.xib in Resources */,
 				D5A8DA83255F1BBD00EEA8E4 /* TopicItemCell.xib in Resources */,
 				D55AFB41255EE7EC00AFEE21 /* PasswordRecoveryViewController.xib in Resources */,
 				D593983B2555D580004AA116 /* MainViewController.xib in Resources */,
@@ -678,6 +699,7 @@
 				D519BE9025571CC8007E3D64 /* RegisterUserRequest.swift in Sources */,
 				91130AA0255851A700D72EBD /* SearchResponse.swift in Sources */,
 				D58730912556FBF900FE6FF3 /* CreateTopicRequest.swift in Sources */,
+				D5CC66A6256139E5008DC385 /* CreateTopicViewModel.swift in Sources */,
 				D5189EDD254B2E6F002B69AB /* SceneDelegate.swift in Sources */,
 				D55AFB50255EEBDC00AFEE21 /* RecoverPasswordRequest.swift in Sources */,
 				D593983A2555D580004AA116 /* Coordinator.swift in Sources */,
@@ -700,6 +722,7 @@
 				D5AEEC642556FE2A00723515 /* RegistrationViewController.swift in Sources */,
 				D5E417EA255B141000FD84AC /* TextInput.swift in Sources */,
 				D5189F1D254B45B4002B69AB /* TopicItem.swift in Sources */,
+				D5CC66AA25613A0A008DC385 /* CreateTopicForm.swift in Sources */,
 				D587309B2556FC8E00FE6FF3 /* ErrorResponse.swift in Sources */,
 				9188EAF6255C0E6800550B53 /* Post.swift in Sources */,
 				D5698D8E254D6A44008018AA /* Poster.swift in Sources */,
@@ -721,6 +744,7 @@
 				D597742D255C4CD8004617D2 /* FormServices+Injection.swift in Sources */,
 				D59398382555D580004AA116 /* AuthenticationCoordinator.swift in Sources */,
 				D593983C2555D580004AA116 /* MainViewController.swift in Sources */,
+				D5CC66A12561393D008DC385 /* CreateTopicViewController.swift in Sources */,
 				91D223832551C90D001EDA36 /* LoginResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

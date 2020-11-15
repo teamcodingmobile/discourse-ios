@@ -10,16 +10,18 @@ import UIKit
 class TopicsCoordinator: Coordinator {
     let presenter: UINavigationController
     
+    var topicListViewModel: TopicListViewModel?
+    
     init(presenter: UINavigationController) {
         self.presenter = presenter
     }
     
     override func start() {
-        let viewModel = TopicListViewModel()
-        let topicsViewController = TopicListViewController(viewModel: viewModel)
+        topicListViewModel = TopicListViewModel()
+        let topicsViewController = TopicListViewController(viewModel: topicListViewModel!)
         
-        viewModel.delegate = topicsViewController
-        viewModel.coordinator = self
+        topicListViewModel?.delegate = topicsViewController
+        topicListViewModel?.coordinator = self
         
         presenter.pushViewController(topicsViewController, animated: true)
     }
@@ -31,6 +33,24 @@ extension TopicsCoordinator: TopicListViewCoordinator {
     }
     
     func goToCreateTopic() {
-        //TODO: Push create topic screen
+        let viewModel = CreateTopicViewModel()
+        let viewController = CreateTopicViewController(viewModel: viewModel)
+        
+        viewModel.coordinatorDelegate = self
+        viewModel.delegate = viewController
+        
+        presenter.present(viewController, animated: true)
+    }
+}
+
+extension TopicsCoordinator: CreateTopicCoordinatorDelegate {
+    func topicDidCreate() {
+        topicListViewModel?.refreshTopics()
+        
+        presenter.dismiss(animated: true)
+    }
+    
+    func topicCreationCanceled() {
+        presenter.dismiss(animated: true)
     }
 }
