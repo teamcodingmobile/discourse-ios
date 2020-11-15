@@ -6,3 +6,16 @@
 //
 
 import Foundation
+
+class PostItemViewModel{
+    let post: Post
+    
+    init(post: Post) {
+        
+        self.post = post
+        
+        let id = post.id
+        let poster = post.username
+        let blurb = post.blurb
+    }
+}

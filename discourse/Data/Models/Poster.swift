@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Poster {
+struct Poster: Codable {
     var id: Int
     var username: String
     var avatarUrl: String

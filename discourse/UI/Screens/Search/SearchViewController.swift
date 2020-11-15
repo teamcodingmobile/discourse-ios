@@ -46,11 +46,21 @@ class SearchViewController: UIViewController {
         navbar.shadowImage = shadowImage
         
         navigationItem.searchController = UISearchController(searchResultsController: nil)
+        navigationItem.searchController?.searchBar.delegate = self
         navigationItem.hidesSearchBarWhenScrolling = false
         
     }
     
     func submit(term: String){
-        
+        viewModel.search(term: term)
+    }
+}
+
+extension SearchViewController: UISearchBarDelegate{
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let search = searchBar.text ?? ""
+        submit(term: search)
+        searchBar.resignFirstResponder()
+        searchBar.endEditing(true)
     }
 }

@@ -42,4 +42,24 @@ class TopicItemFactory {
             return topicItem
         }
     }
+    
+    func createSearch(from response: [SearchTopicsResponse]?) -> [TopicItem] {
+        guard let response = response else { return [] }
+        
+        return response.map { (responseTopic) -> TopicItem in
+            
+            
+            let topicItem = TopicItem(
+                id: responseTopic.id,
+                title: responseTopic.title,
+                viewsCount: responseTopic.viewsCount,
+                postCount: responseTopic.postsCount,
+                replyCount: responseTopic.replyCount,
+                pinned: responseTopic.pinned
+            )
+            
+            return topicItem
+        }
+    }
+    
 }
