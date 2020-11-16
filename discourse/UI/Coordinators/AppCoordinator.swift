@@ -54,8 +54,16 @@ class AppCoordinator: Coordinator {
         addChildCoordinator(searchCoordinator)
         searchCoordinator.start()
         
+        let profileNavigationController = UINavigationController()
+        profileNavigationController.tabBarItem.title = NSLocalizedString("tabs.profile.title", comment: "")
+        profileNavigationController.tabBarItem.image = UIImage(systemName: "person.circle")
+        let usersCoordinator = UsersCoordinator(presenter: profileNavigationController)
+        
+        addChildCoordinator(usersCoordinator)
+        usersCoordinator.start()
+        
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [topicsNavigationController, searchNavigationController]
+        tabBarController.viewControllers = [topicsNavigationController, searchNavigationController, profileNavigationController]
         
         window.rootViewController = tabBarController
         window.makeKeyAndVisible()

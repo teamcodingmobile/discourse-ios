@@ -25,6 +25,7 @@ final class HttpClient: DataClient {
     
     @Injected var authService: AuthService
     
+    @Injected var userFactory: UserFactory
     @Injected var topicItemFactory: TopicItemFactory
     @Injected var postFactory: PostFactory
     @Injected var posterFactory: PosterFactory
@@ -46,8 +47,24 @@ final class HttpClient: DataClient {
         apiKey = key
     }
     
+    func getUser(withId id: Int, onSuccess success: @escaping (User) -> (), onError error: ((Error?) -> ())?) -> Void {
+        send(request: GetUserRequest(userId: id), onSuccess: { [weak self] (response) in
+            if let user = self?.userFactory.create(from: response) {
+                success(user)
+            }
+        }, onError: error)
+    }
+    
     func getLatestTopics(atPage page: Int, onSuccess success: @escaping ([TopicItem]) -> (), onError error: ((Error?) -> ())?) -> Void {
         send(request: GetLatestTopicsRequest(atPage: page), onSuccess: { [weak self] response in
+            if self != nil {
+                success(self!.topicItemFactory.create(from: response))
+            }
+        }, onError: error)
+    }
+    
+    func getUserTopics(username: String, page: Int, onSuccess success: @escaping ([TopicItem]) -> (), onError error: ((Error?) -> ())?) {
+        send(request: GetUserTopicsRequest(username: username, page: page), onSuccess: { [weak self] (response) in
             if self != nil {
                 success(self!.topicItemFactory.create(from: response))
             }
@@ -62,8 +79,10 @@ final class HttpClient: DataClient {
 
     func login(withData data: LoginForm, onSuccess success: @escaping () -> (), onError error: ((Error?) -> ())?) {
         send(request: LoginRequest(data: data), onSuccess: { [weak self] response in
-            self?.authService.logIn(user: data.username!)
-            success()
+            if self != nil && response != nil {
+                self?.authService.logIn(id: response!.user.id, username: response!.user.username)
+                success()
+            }
         }, onError: error)
     }
     
@@ -90,8 +109,12 @@ final class HttpClient: DataClient {
     
     private func send<T: HttpRequest>(request: T, onSuccess success: @escaping (T.Response?) -> (), onError failure: ((Error?) -> ())?) {
         let urlRequest = request.build(withBaseUrl: baseUrl, usingApiKey: apiKey, usingApiUsername: authService.loggedUser ?? "system")
-        
+
         let task = session.dataTask(with: urlRequest) { data, response, error in
+            if data != nil {
+                let rawData = String(data: data!, encoding: .utf8)
+                print(rawData)
+            }
             guard let httpResponse = response as? HTTPURLResponse else {
                 fatalError("Unable to cast response to \(HTTPURLResponse.self)")
             }

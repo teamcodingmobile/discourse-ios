@@ -14,5 +14,6 @@ extension Resolver {
         register { TopicItemFactory(posterFactory: resolve()) }
         register { PostFactory() }
         register { SearchResultFactory(postFactory: resolve(), posterFactory: resolve()) }
+        register { UserFactory() }
     }
 }

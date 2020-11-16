@@ -121,7 +121,7 @@ extension TopicListViewController: TopicListViewDelegate {
         //TODO: Stop calling fetchMore
     }
     
-    func topicItemDidChanged(atIndex index: Int) {
+    func topicItemDidChange(atIndex index: Int) {
         guard let visibleIndexPaths = topicsTable.indexPathsForVisibleRows else { return }
         
         let path = IndexPath(row: index, section: 0)

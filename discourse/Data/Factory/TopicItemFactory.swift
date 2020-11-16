@@ -25,7 +25,35 @@ class TopicItemFactory {
                 return responseTopic.lastPosterUsername == responseUser.username
             }
             
-            let date = String(responseTopic.lastPostedAt.prefix(10)).toDate()
+            let date = responseTopic.lastPostedAt.toDate()
+            let lastPoster = (user != nil) ? posterFactory.create(from: user!) : nil
+            
+            let topicItem = TopicItem(
+                id: responseTopic.id,
+                title: responseTopic.title,
+                viewsCount: responseTopic.viewsCount,
+                postCount: responseTopic.postsCount,
+                replyCount: responseTopic.replyCount,
+                lastPoster: lastPoster,
+                lastPostedAt: date,
+                pinned: responseTopic.pinned
+            )
+            
+            return topicItem
+        }
+    }
+    
+    func create(from response: GetUserTopicsResponse?) -> [TopicItem] {
+        guard let response = response else {
+            return []
+        }
+        
+        return response.topicList.topics.map { (responseTopic) -> TopicItem in
+            let user = response.users.first { (responseUser) -> Bool in
+                return responseTopic.posters[0].userId == responseUser.id
+            }
+            
+            let date = responseTopic.createdAt.toDate()
             let lastPoster = (user != nil) ? posterFactory.create(from: user!) : nil
             
             let topicItem = TopicItem(

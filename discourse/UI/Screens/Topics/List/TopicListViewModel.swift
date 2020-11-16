@@ -21,7 +21,7 @@ protocol TopicListViewDelegate {
     
     func onGetTopicsError()
     
-    func topicItemDidChanged(atIndex index: Int)
+    func topicItemDidChange(atIndex index: Int)
 }
 
 class TopicListViewModel {
@@ -85,7 +85,7 @@ extension TopicListViewModel: TopicItemViewDelegate {
         }
         
         if let index = index {
-            self.delegate?.topicItemDidChanged(atIndex: index)
+            self.delegate?.topicItemDidChange(atIndex: index)
         }
     }
 }
