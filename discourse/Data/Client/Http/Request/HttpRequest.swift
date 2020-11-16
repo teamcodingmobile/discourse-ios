@@ -63,9 +63,13 @@ extension HttpRequest {
             urlRequest.httpBody = jsonData
         }
         
-        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        urlRequest.addValue(apiKey, forHTTPHeaderField: "Api-Key")
-        urlRequest.addValue(apiUsername, forHTTPHeaderField: "Api-Username")
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue(apiKey, forHTTPHeaderField: "Api-Key")
+        urlRequest.setValue(apiUsername, forHTTPHeaderField: "Api-Username")
+        
+        headers.forEach { (header, value) in
+            urlRequest.setValue(value, forHTTPHeaderField: header)
+        }
         
         return urlRequest
     }

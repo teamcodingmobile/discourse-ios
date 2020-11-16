@@ -12,34 +12,42 @@ protocol AuthServicesProtocol{
     var isLogged: Bool { get }
     var loggedUser: String? { get }
     
-    func logIn(user: String)
+    func logIn(id: Int, username: String)
     func logOut()
 }
 
 class AuthService: AuthServicesProtocol{
     
-    private static let userKey = "loggedUser"
+    private static let userId = "loggedUserId"
+    private static let username = "loggedUser"
     
     private let storage = UserDefaults.standard
     
     var isLogged: Bool {
         get {
-            return storage.value(forKey: AuthService.userKey) != nil
+            return storage.value(forKey: AuthService.username) != nil
         }
     }
     
     var loggedUser: String? {
         get {
-            return storage.string(forKey: AuthService.userKey)
+            return storage.string(forKey: AuthService.username)
         }
     }
     
-    func logIn(user: String){
-        storage.setValue(user, forKey: AuthService.userKey)
+    var loggedUserId: Int? {
+        get {
+            return storage.integer(forKey: AuthService.userId)
+        }
+    }
+    
+    func logIn(id: Int, username: String){
+        storage.setValue(id, forKey: AuthService.userId)
+        storage.setValue(username, forKey: AuthService.username)
     }
     
     func logOut(){
-        storage.removeObject(forKey: AuthService.userKey)
+        storage.removeObject(forKey: AuthService.username)
     }
     
 }

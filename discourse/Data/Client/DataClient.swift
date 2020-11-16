@@ -12,7 +12,11 @@ enum DataError: Error, Equatable {
 }
 
 protocol DataClient {
+    func getUser(withId id: Int, onSuccess success: @escaping (User) -> (), onError error: ((Error?) -> ())?) -> Void
+    
     func getLatestTopics(atPage page: Int, onSuccess success: @escaping ([TopicItem]) -> (), onError error: ((Error?) -> ())?) -> Void
+    
+    func getUserTopics(username: String, page: Int, onSuccess success: @escaping ([TopicItem]) -> (), onError error: ((Error?) -> ())?) -> Void
     
     func createTopic(withData data: CreateTopicForm, onSuccess success: @escaping () -> (), onError error: ((Error?) -> ())?) -> Void
 
