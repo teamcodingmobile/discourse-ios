@@ -9,6 +9,7 @@ import UIKit
 
 protocol TopicItemViewDelegate {
     func posterImageDidLoad(topic: TopicItem)
+
 }
 
 class TopicItemViewModel {
@@ -18,7 +19,7 @@ class TopicItemViewModel {
     
     init(topic: TopicItem) {
         self.topic = topic
-        
+
         guard let lastPoster = topic.lastPoster else { return }
         
         guard let posterImageUrl = URL(string: lastPoster.getAvatarUrl(size: 42)) else { return }

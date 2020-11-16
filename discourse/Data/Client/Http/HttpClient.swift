@@ -26,6 +26,9 @@ final class HttpClient: DataClient {
     @Injected var authService: AuthService
     
     @Injected var topicItemFactory: TopicItemFactory
+    @Injected var postFactory: PostFactory
+    @Injected var posterFactory: PosterFactory
+    @Injected var searchFactory: SearchResultFactory
     
     lazy var session: URLSession = {
         let configuration = URLSessionConfiguration.default
@@ -59,10 +62,8 @@ final class HttpClient: DataClient {
 
     func login(withData data: LoginForm, onSuccess success: @escaping () -> (), onError error: ((Error?) -> ())?) {
         send(request: LoginRequest(data: data), onSuccess: { [weak self] response in
-            if self != nil {
-                self?.authService.logIn(user: data.username!)
-                success()
-            }
+            self?.authService.logIn(user: data.username!)
+            success()
         }, onError: error)
     }
     
@@ -72,10 +73,10 @@ final class HttpClient: DataClient {
         }, onError: error)
     }
 
-    func getSearch(withTerm word: String, onSuccess success: @escaping (SearchResponse) -> (), onError error: ((Error?) -> ())?) ->Void {
-        send(request: GetSearchRequest(withTerm: word), onSuccess: { [weak self ] response in
+    func search(byTerm term: String, onSuccess success: @escaping (SearchResult) -> (), onError error: ((Error?) -> ())?) ->Void {
+        send(request: GetSearchRequest(withTerm: term), onSuccess: { [weak self] response in
             if self != nil {
-                success(response!)
+                success(self!.searchFactory.create(from: response))
             }
         }, onError: error)
     }

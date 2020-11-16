@@ -12,6 +12,7 @@ extension Resolver {
     public static func registerFactoryServices() {
         register { PosterFactory() }
         register { TopicItemFactory(posterFactory: resolve()) }
-        register { AuthService() }
+        register { PostFactory() }
+        register { SearchResultFactory(postFactory: resolve(), posterFactory: resolve()) }
     }
 }

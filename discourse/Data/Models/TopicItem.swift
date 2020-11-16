@@ -10,7 +10,7 @@ import Foundation
 struct TopicItem {
     var id: Int
     var title: String
-    var viewsCount: Int
+    var viewsCount: Int?
     var postCount: Int
     var replyCount: Int
     var lastPoster: Poster?

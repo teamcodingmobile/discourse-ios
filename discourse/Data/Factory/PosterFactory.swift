@@ -15,4 +15,20 @@ class PosterFactory {
             avatarUrl: "https://mdiscourse.keepcoding.io" + response.avatarTemplate
         )
     }
+    
+    func create(from response: [SearchUsersResponse]?) -> [Poster] {
+        guard let response = response else { return [] }
+        
+        return response.map{ (responseTopic) -> Poster in
+            
+            let posterItem = Poster(
+                id: responseTopic.id,
+                name: responseTopic.name,
+                username: responseTopic.username,
+                avatarUrl: "https://mdiscourse.keepcoding.io" + responseTopic.avatarTemplate
+            )
+            
+            return posterItem
+        }
+    }
 }

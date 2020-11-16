@@ -25,7 +25,7 @@ class TopicItemCell: UITableViewCell {
             usernameLabel.text = viewModel.topic.lastPoster?.username
             dateTimeLabel.text = Date().offset(from: viewModel.topic.lastPostedAt)
             bodyLabel.text = viewModel.topic.title
-            viewsCountLabel.text = String(viewModel.topic.viewsCount)
+            viewsCountLabel.text = String(viewModel.topic.viewsCount ?? 0)
             postsCountLabel.text = String(viewModel.topic.postCount)
             replyCountLabel.text = String(viewModel.topic.replyCount)
             posterImageView.image = viewModel.posterImage

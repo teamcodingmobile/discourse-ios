@@ -7,12 +7,19 @@
 
 import Foundation
 
-struct Poster {
+struct Poster: Codable {
     var id: Int
+    var name: String?
     var username: String
     var avatarUrl: String
     
     func getAvatarUrl(size: Int) -> String {
         return avatarUrl.replacingOccurrences(of: "{size}", with: String(size))
+    }
+}
+
+extension Poster: Equatable {
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.id == rhs.id
     }
 }
