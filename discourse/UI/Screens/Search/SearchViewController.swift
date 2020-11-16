@@ -30,7 +30,6 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         setupTable()
         setupNavbar()
-
     }
     
     func setupNavbar() {
@@ -87,10 +86,9 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        let search = searchBar.text ?? ""
+        guard let search = searchBar.text else { return }
+        navigationItem.searchController?.dismiss(animated: true)
         submit(term: search)
-        searchBar.resignFirstResponder()
-        searchBar.endEditing(true)
     }
 }
 extension SearchViewController: UITableViewDelegate {
@@ -100,66 +98,38 @@ extension SearchViewController: UITableViewDelegate {
 extension SearchViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if segmentSelector.selectedSegmentIndex == 0{
-            return 3
-        } else {return 1}
+        return segmentSelector.selectedSegmentIndex == 0 ? 2 : 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var numberOfRows: Int = 0
-        
-        if segmentSelector.selectedSegmentIndex == 0{
-            if (section == 0){
-                return self.viewModel.topicItemViewModels.count
-            } else if (section == 1){
-                return self.viewModel.postItemViewModels.count
-            } else {
-                return self.viewModel.userItemViewModels.count
-            }
-        }else if segmentSelector.selectedSegmentIndex == 1{
-            numberOfRows = self.viewModel.topicItemViewModels.count
-        }else if segmentSelector.selectedSegmentIndex == 2{
-            numberOfRows = self.viewModel.postItemViewModels.count
-        }else {
-            numberOfRows = self.viewModel.userItemViewModels.count
+        switch segmentSelector.selectedSegmentIndex {
+        case 0:
+            return section == 0 ? self.viewModel.postItemViewModels.count : self.viewModel.userItemViewModels.count
+        case 1:
+            return self.viewModel.postItemViewModels.count
+        case 2:
+            return self.viewModel.userItemViewModels.count
+        default:
+            return 0
         }
-        return numberOfRows
     }
     
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let sectionName: String
-        if segmentSelector.selectedSegmentIndex == 0{
-            switch section {
-                case 0:
-                    sectionName = NSLocalizedString("Topics", comment: "")
-                case 1:
-                    sectionName = NSLocalizedString("Posts", comment: "")
-                default:
-                    sectionName = NSLocalizedString("Users", comment: "")
-            }
-            return sectionName
-        }else if segmentSelector.selectedSegmentIndex == 1{
-            sectionName = NSLocalizedString("Topics", comment: "")
-        }else if segmentSelector.selectedSegmentIndex == 2{
-            sectionName = NSLocalizedString("Posts", comment: "")
-        }else {sectionName = NSLocalizedString("Users", comment: "")}
-        
-        return sectionName
+        switch segmentSelector.selectedSegmentIndex {
+        case 0:
+            return section == 0 ? NSLocalizedString("Posts", comment: "") : NSLocalizedString("Users", comment: "")
+        case 1:
+            return NSLocalizedString("Posts", comment: "")
+        default:
+            return NSLocalizedString("Users", comment: "")
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if segmentSelector.selectedSegmentIndex == 0{
+        if segmentSelector.selectedSegmentIndex == 0 {
         
             if indexPath.section == 0 {
-                let cellViewModel = viewModel.topicItemViewModel(atIndex: indexPath.row)
-        
-                if let cell = tableView.dequeueReusableCell(withIdentifier: "TopicItemCell", for: indexPath) as? TopicItemCell {
-                    cell.viewModel = cellViewModel
-                    return cell
-                }
-
-            }else if indexPath.section == 1{
                 let cellViewModel = viewModel.postItemViewModel(atIndex: indexPath.row)
         
                 if let cell = tableView.dequeueReusableCell(withIdentifier: "PostItemCell", for: indexPath) as? PostItemCell {
@@ -167,7 +137,7 @@ extension SearchViewController: UITableViewDataSource {
                     return cell
             
                 }
-            }else if indexPath.section == 2{
+            } else {
                 let cellViewModel = viewModel.userItemViewModel(atIndex: indexPath.row)
         
                 if let cell = tableView.dequeueReusableCell(withIdentifier: "UserItemCell", for: indexPath) as? UserItemCell {
@@ -175,21 +145,14 @@ extension SearchViewController: UITableViewDataSource {
                     return cell
                 }
             }
-        }else if segmentSelector.selectedSegmentIndex == 1{
-            let cellViewModel = viewModel.topicItemViewModel(atIndex: indexPath.row)
-    
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "TopicItemCell", for: indexPath) as? TopicItemCell {
-                cell.viewModel = cellViewModel
-                return cell
-            }
-        }else if segmentSelector.selectedSegmentIndex == 2{
+        } else if segmentSelector.selectedSegmentIndex == 1{
             let cellViewModel = viewModel.postItemViewModel(atIndex: indexPath.row)
     
             if let cell = tableView.dequeueReusableCell(withIdentifier: "PostItemCell", for: indexPath) as? PostItemCell {
                 cell.viewModel = cellViewModel
                 return cell
             }
-            }else {
+        } else {
                 let cellViewModel = viewModel.userItemViewModel(atIndex: indexPath.row)
         
                 if let cell = tableView.dequeueReusableCell(withIdentifier: "UserItemCell", for: indexPath) as? UserItemCell {
@@ -204,7 +167,12 @@ extension SearchViewController: UITableViewDataSource {
 
 extension SearchViewController: SearchViewDelegate {
     func onSearchDidLoad() {
+        
         searchTable.reloadData()
+    }
+    
+    func resultDidChange(index: IndexPath) {
+        searchTable.reloadRows(at: [index], with: .none)
     }
     
     func onGetSearchError() {

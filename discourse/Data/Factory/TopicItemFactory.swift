@@ -42,25 +42,4 @@ class TopicItemFactory {
             return topicItem
         }
     }
-    
-    func createSearch(from response: [SearchTopicsResponse]?) -> [TopicItem] {
-        guard let response = response else { return [] }
-        
-        return response.map { (responseTopic) -> TopicItem in
-            
-            let date = String(responseTopic.lastPostedAt.prefix(10)).toDate()
-            let topicItem = TopicItem(
-                id: responseTopic.id,
-                title: responseTopic.title,
-                postCount: responseTopic.postsCount,
-                replyCount: responseTopic.replyCount,
-                lastPostedAt: date,
-                pinned: responseTopic.pinned
-            )
-            
-            return topicItem
-        }
-    }
-    
-    
 }

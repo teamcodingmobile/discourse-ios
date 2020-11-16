@@ -17,3 +17,9 @@ struct Poster: Codable {
         return avatarUrl.replacingOccurrences(of: "{size}", with: String(size))
     }
 }
+
+extension Poster: Equatable {
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.id == rhs.id
+    }
+}

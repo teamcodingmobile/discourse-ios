@@ -13,6 +13,6 @@ extension Resolver {
         register { PosterFactory() }
         register { TopicItemFactory(posterFactory: resolve()) }
         register { PostFactory() }
-        register { AuthService() }
+        register { SearchResultFactory(postFactory: resolve(), posterFactory: resolve()) }
     }
 }

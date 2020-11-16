@@ -16,3 +16,9 @@ struct Post{
         return avatarTemplate.replacingOccurrences(of: "{size}", with: String(size))
     }
 }
+
+extension Post: Equatable {
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.id == rhs.id
+    }
+}

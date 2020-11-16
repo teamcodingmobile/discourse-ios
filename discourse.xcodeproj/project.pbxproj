@@ -81,6 +81,8 @@
 		D5A8DA89255F205F00EEA8E4 /* TopicItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A8DA88255F205F00EEA8E4 /* TopicItemViewModel.swift */; };
 		D5AEEC642556FE2A00723515 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AEEC622556FE2A00723515 /* RegistrationViewController.swift */; };
 		D5AEEC692556FE3A00723515 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AEEC682556FE3A00723515 /* RegistrationViewModel.swift */; };
+		D5B241FE2562FC48009C9C58 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B241FD2562FC48009C9C58 /* SearchResult.swift */; };
+		D5B242022562FC9D009C9C58 /* SearchResultFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B242012562FC9D009C9C58 /* SearchResultFactory.swift */; };
 		D5BE651825560A8B000BBF66 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5BE651A25560A8B000BBF66 /* Localizable.strings */; };
 		D5CC6697256069B7008DC385 /* LoginForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CC6696256069B7008DC385 /* LoginForm.swift */; };
 		D5CC66A12561393D008DC385 /* CreateTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CC669F2561393D008DC385 /* CreateTopicViewController.swift */; };
@@ -184,6 +186,8 @@
 		D5A8DA88255F205F00EEA8E4 /* TopicItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicItemViewModel.swift; sourceTree = "<group>"; };
 		D5AEEC622556FE2A00723515 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		D5AEEC682556FE3A00723515 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		D5B241FD2562FC48009C9C58 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		D5B242012562FC9D009C9C58 /* SearchResultFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultFactory.swift; sourceTree = "<group>"; };
 		D5BE64FF2556091B000BBF66 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = es; path = es.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D5BE651925560A8B000BBF66 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D5BE651D25560A8F000BBF66 /* es */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; lineEnding = 0; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -322,6 +326,7 @@
 				D5698D8D254D6A44008018AA /* Poster.swift */,
 				91F4E0BE2557956E00D6A5FF /* AuthService.swift */,
 				9188EAF5255C0E6800550B53 /* Post.swift */,
+				D5B241FD2562FC48009C9C58 /* SearchResult.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -398,6 +403,7 @@
 				D5698D87254D6817008018AA /* TopicItemFactory.swift */,
 				D5698D9A254D6EFB008018AA /* PosterFactory.swift */,
 				91225C7025615E0700BD72AA /* PostFactory.swift */,
+				D5B242012562FC9D009C9C58 /* SearchResultFactory.swift */,
 			);
 			path = Factory;
 			sourceTree = "<group>";
@@ -754,6 +760,7 @@
 				D5189F2D254B482D002B69AB /* GetLatestTopicsRequest.swift in Sources */,
 				D5189EDB254B2E6F002B69AB /* AppDelegate.swift in Sources */,
 				91733D4F255C5BBE00239562 /* LoginViewController.swift in Sources */,
+				D5B241FE2562FC48009C9C58 /* SearchResult.swift in Sources */,
 				9194ACCC25606A3500C7023B /* UserItemCell.swift in Sources */,
 				91F8D60F255F5EAF00050D36 /* SearchViewModel.swift in Sources */,
 				D5189F37254B4AFE002B69AB /* GetLatestTopicsResponse.swift in Sources */,
@@ -797,6 +804,7 @@
 				D5717D1F254D845A00A22E3A /* AppDelegate+Injection.swift in Sources */,
 				91F8D60A255F5E9700050D36 /* SearchViewController.swift in Sources */,
 				9194ACC52560625000C7023B /* SearchCoordinator.swift in Sources */,
+				D5B242022562FC9D009C9C58 /* SearchResultFactory.swift in Sources */,
 				D5189F32254B4893002B69AB /* HttpRequest.swift in Sources */,
 				91F4E0BF2557956E00D6A5FF /* AuthService.swift in Sources */,
 				D519BE9F25576900007E3D64 /* RegisterUserForm.swift in Sources */,

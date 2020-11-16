@@ -8,7 +8,7 @@
 import Foundation
 
 class PostFactory {
-    func createSearch(from response: [SearchPostsResponse]?) -> [Post] {
+    func create(from response: [SearchPostsResponse]?) -> [Post] {
         guard let response = response else { return [] }
         
         return response.map{ (responsePost) -> Post in

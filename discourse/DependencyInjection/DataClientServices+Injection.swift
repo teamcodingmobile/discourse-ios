@@ -10,6 +10,7 @@ import Resolver
 
 extension Resolver {
     public static func registerDataClientServices() {
+        register { AuthService() }
         register {
             HttpClient(
                 withBaseUrl: "https://mdiscourse.keepcoding.io",

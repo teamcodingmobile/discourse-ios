@@ -11,6 +11,8 @@ import Resolver
 protocol SearchViewDelegate {
     func onSearchDidLoad()
     
+    func resultDidChange(index: IndexPath)
+    
     func onGetSearchError()
 }
 class SearchViewModel{
@@ -19,9 +21,6 @@ class SearchViewModel{
     
     @LazyInjected var dataClient: DataClient
     
-    var topicItemViewModels: [TopicItemViewModel] = []
-    var topicsDelegate: TopicItemViewDelegate?
-    
     var postItemViewModels: [PostItemViewModel] = []
     var postsDelegate: PostItemViewDelegate?
     
@@ -29,13 +28,8 @@ class SearchViewModel{
     var usersDelegate: UserItemViewDelegate?
     
     
-    func topicItemViewModel(atIndex index: Int) -> TopicItemViewModel? {
-        guard index < topicItemViewModels.count else { return nil }
-        
-        return topicItemViewModels[index]
-    }
     func postItemViewModel(atIndex index: Int) -> PostItemViewModel? {
-        guard index < topicItemViewModels.count else { return nil }
+        guard index < postItemViewModels.count else { return nil }
         
         return postItemViewModels[index]
     }
@@ -45,33 +39,22 @@ class SearchViewModel{
         return userItemViewModels[index]
     }
     
-    
-    
     func search(term: String){
-        dataClient.getSearch(withTerm: term) { [weak self] (topics, posts, users)  in
+        dataClient.search(byTerm: term) { [weak self] (result)  in
             
-            let topicViewModels: [TopicItemViewModel] = topics.map() { topic in
-                let topicViewModel = TopicItemViewModel(topic: topic)
-                    
-                return topicViewModel
-            }
-            self?.topicItemViewModels.append(contentsOf: topicViewModels)
-            
-            
-            let postViewModels: [PostItemViewModel] = posts.map { post in
+            self?.postItemViewModels = result.posts.map { post in
                 let postViewModel = PostItemViewModel(post: post)
+                postViewModel.delegate = self?.postsDelegate
                     
                 return postViewModel
             }
-            self?.postItemViewModels.append(contentsOf: postViewModels)
-
             
-            let userViewModels: [UserItemViewModel] = users.map { user in
+            self?.userItemViewModels = result.users.map { user in
                 let userViewModel = UserItemViewModel(user: user)
+                userViewModel.delegate = self?.usersDelegate
                     
                 return userViewModel
             }
-            self?.userItemViewModels.append(contentsOf: userViewModels)
             
             self?.delegate?.onSearchDidLoad()
             
@@ -80,5 +63,29 @@ class SearchViewModel{
         }
     }
 
-    
+}
+
+extension SearchViewModel: PostItemViewDelegate {
+    func postImageDidLoad(post: Post) {
+        let index = postItemViewModels.firstIndex { (item) -> Bool in
+            return item.post == post
+        }
+        
+        guard nil != index else { return }
+        
+        delegate?.resultDidChange(index: IndexPath(row: index!, section: 0))
+    }
+}
+
+
+extension SearchViewModel: UserItemViewDelegate {
+    func userImageDidLoad(user: Poster) {
+        let index = userItemViewModels.firstIndex { (item) -> Bool in
+            return item.user == user
+        }
+        
+        guard nil != index else { return }
+        
+        delegate?.resultDidChange(index: IndexPath(row: index!, section: 1))
+    }
 }

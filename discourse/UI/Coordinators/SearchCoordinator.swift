@@ -21,6 +21,9 @@ class SearchCoordinator: Coordinator {
         viewModel.delegate = searchViewController
         viewModel.coordinator = self
         
+        viewModel.postsDelegate = viewModel
+        viewModel.usersDelegate = viewModel
+        
         presenter.pushViewController(searchViewController, animated: true)
     }
 }

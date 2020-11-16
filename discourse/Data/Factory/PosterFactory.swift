@@ -16,7 +16,7 @@ class PosterFactory {
         )
     }
     
-    func createSearch(from response: [SearchUsersResponse]?) -> [Poster] {
+    func create(from response: [SearchUsersResponse]?) -> [Poster] {
         guard let response = response else { return [] }
         
         return response.map{ (responseTopic) -> Poster in

@@ -22,5 +22,5 @@ protocol DataClient {
     
     func recoverPassword(withData data: RecoverPasswordForm, onSuccess success: @escaping() -> (), onError error: ((Error?)-> ())?) -> Void
 
-    func getSearch(withTerm word: String, onSuccess success: @escaping ([TopicItem], [Post], [Poster]) -> (), onError error: ((Error?) -> ())?) -> Void
+    func search(byTerm word: String, onSuccess success: @escaping (SearchResult) -> (), onError error: ((Error?) -> ())?) -> Void
 }
