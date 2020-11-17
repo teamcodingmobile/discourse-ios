@@ -13,10 +13,12 @@ struct TopicItem {
     var viewsCount: Int?
     var postCount: Int
     var replyCount: Int
+    var author: Poster?
     var lastPoster: Poster?
     var lastPostedAt: Date
     var excerpt: String?
     var pinned: Bool
+    var posts: [Post]?
 }
 
 extension TopicItem: Equatable {

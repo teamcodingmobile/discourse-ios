@@ -14,6 +14,7 @@ class PostItemCell: UITableViewCell {
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var postText: UILabel!
+    @IBOutlet weak var dateTimeLabel: UILabel!
     
     var viewModel: PostItemViewModel? {
         didSet {
@@ -21,6 +22,7 @@ class PostItemCell: UITableViewCell {
             username.text = viewModel.post.username
             postText.text = viewModel.post.blurb
             posterImage.image = viewModel.userImage
+            dateTimeLabel.text = Date().offset(from: viewModel.post.createdAt)
         }
     }
     
