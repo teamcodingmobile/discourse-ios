@@ -8,6 +8,12 @@
 import Foundation
 import Resolver
 
+
+protocol TopicDetailViewCoordinator {
+    func goToReplyTopic(topic: TopicItem)
+}
+
+
 protocol TopicDetailViewDelegate {
     func topicDidLoad()
     
@@ -17,6 +23,7 @@ protocol TopicDetailViewDelegate {
 }
 
 class TopicDetailViewModel {
+    var coordinator: TopicDetailViewCoordinator?
     var delegate: TopicDetailViewDelegate?
     @LazyInjected var dataClient: DataClient
     
@@ -24,6 +31,7 @@ class TopicDetailViewModel {
     var postViewModels: [PostItemViewModel] = []
     
     let topicId: Int
+    var topic: TopicItem? = nil
     
     init(topicId: Int) {
         self.topicId = topicId
@@ -38,6 +46,7 @@ class TopicDetailViewModel {
     func loadTopic() {
         dataClient.getTopic(withId: topicId) { [weak self] (topic) in
             self?.topicViewModel = TopicItemViewModel(topic: topic)
+            self?.topic = topic
             
             if let posts = topic.posts {
                 self?.postViewModels = posts.map { (post) -> PostItemViewModel in
@@ -56,6 +65,18 @@ class TopicDetailViewModel {
     
     func numberOfPosts() -> Int {
         return postViewModels.count
+    }
+    
+    func replyTopicButtonTapped(){
+        if let topic = topic {
+            self.coordinator?.goToReplyTopic(topic: topic)
+        }
+        
+    }
+    
+    func refreshTopic(){
+        topic = nil
+        loadTopic()
     }
 }
 

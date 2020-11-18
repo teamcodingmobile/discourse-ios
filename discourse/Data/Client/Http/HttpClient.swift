@@ -16,7 +16,6 @@ enum HttpClientError: Error, Equatable {
 
 final class HttpClient: DataClient {
     
-    
     var baseUrl: URL
     
     var apiKey: String
@@ -82,6 +81,12 @@ final class HttpClient: DataClient {
     
     func createTopic(withData data: CreateTopicForm, onSuccess success: @escaping () -> (), onError error: ((Error?) -> ())?) {
         send(request: CreateTopicRequest(withData: data), onSuccess: { (_) in
+            success()
+        }, onError: error)
+    }
+    
+    func replyTopic(withData data: ReplyTopicForm, onSuccess success: @escaping () -> (), onError error: ((Error?) -> ())?) {
+        send(request: ReplyTopicRequest(withData: data), onSuccess: { (_) in
             success()
         }, onError: error)
     }

@@ -8,9 +8,11 @@
 import UIKit
 
 class TopicsCoordinator: Coordinator {
+    
     let presenter: UINavigationController
     
     var topicListViewModel: TopicListViewModel?
+    var detailViewModel: TopicDetailViewModel?
     
     init(presenter: UINavigationController) {
         self.presenter = presenter
@@ -18,10 +20,13 @@ class TopicsCoordinator: Coordinator {
     
     override func start() {
         topicListViewModel = TopicListViewModel()
+        
+        
         let topicsViewController = TopicListViewController(viewModel: topicListViewModel!)
         
         topicListViewModel?.delegate = topicsViewController
         topicListViewModel?.coordinator = self
+        
         
         presenter.pushViewController(topicsViewController, animated: true)
     }
@@ -29,10 +34,11 @@ class TopicsCoordinator: Coordinator {
 
 extension TopicsCoordinator: TopicListViewCoordinator {
     func goToDetail(ofTopic topic: TopicItem) {
-        let viewModel = TopicDetailViewModel(topicId: topic.id)
-        let viewController = TopicDetailViewController(viewModel: viewModel)
-        
-        viewModel.delegate =  viewController
+        self.detailViewModel = TopicDetailViewModel(topicId: topic.id)
+        guard let detailViewModel = self.detailViewModel else {fatalError()}
+        let viewController = TopicDetailViewController(viewModel: detailViewModel)
+        detailViewModel.coordinator = self
+        detailViewModel.delegate =  viewController
         
         presenter.pushViewController(viewController, animated: true)
     }
@@ -48,10 +54,33 @@ extension TopicsCoordinator: TopicListViewCoordinator {
     }
 }
 
+extension TopicsCoordinator: TopicDetailViewCoordinator {
+    
+    func goToReplyTopic(topic : TopicItem){
+        let viewModel = ReplyTopicViewModel(topic: topic)
+        let viewController = ReplyTopicViewController(viewModel: viewModel, topic: topic)
+        
+        viewModel.coordinatorDelegate = self
+        viewModel.delegate = viewController
+        presenter.present(viewController, animated: true)
+    }
+}
+
+extension TopicsCoordinator: ReplyTopicCoordinatorDelegate {
+    func replyDidCreate() {
+        detailViewModel?.refreshTopic()
+        presenter.dismiss(animated: true)
+    }
+    
+    func replyCanceled() {
+        presenter.dismiss(animated: true)
+    }
+    
+}
+
 extension TopicsCoordinator: CreateTopicCoordinatorDelegate {
     func topicDidCreate() {
         topicListViewModel?.refreshTopics()
-        
         presenter.dismiss(animated: true)
     }
     

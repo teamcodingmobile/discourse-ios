@@ -20,6 +20,8 @@ protocol DataClient {
     
     func createTopic(withData data: CreateTopicForm, onSuccess success: @escaping () -> (), onError error: ((Error?) -> ())?) -> Void
     
+    func replyTopic(withData data: ReplyTopicForm, onSuccess success: @escaping () -> (), onError error: ((Error?) -> ())?) -> Void
+    
     func getTopic(withId topicId: Int, onSuccess success: @escaping (TopicItem) -> (), onError error: ((Error?) -> ())?) -> Void
 
     func login(withData data: LoginForm, onSuccess success: @escaping() -> (), onError error: ((Error?)-> ())?) -> Void
