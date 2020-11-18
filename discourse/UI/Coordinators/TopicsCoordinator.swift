@@ -58,7 +58,7 @@ extension TopicsCoordinator: TopicDetailViewCoordinator {
     
     func goToReplyTopic(topic : TopicItem){
         let viewModel = ReplyTopicViewModel(topic: topic)
-        let viewController = ReplyTopicViewController(viewModel: viewModel, topic: topic)
+        let viewController = ReplyTopicViewController(viewModel: viewModel)
         
         viewModel.coordinatorDelegate = self
         viewModel.delegate = viewController

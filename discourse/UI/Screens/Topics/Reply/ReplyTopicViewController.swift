@@ -21,9 +21,9 @@ class ReplyTopicViewController: UIViewController {
     @IBOutlet weak var replyInput: TextInput!
     @IBOutlet weak var gradientImage: UIImageView!
     
-    init(viewModel: ReplyTopicViewModel, topic: TopicItem) {
+    init(viewModel: ReplyTopicViewModel) {
         self.viewModel = viewModel
-        self.topic = topic
+        self.topic = viewModel.topic
         
         super.init(nibName: nil, bundle: nil)
     }
