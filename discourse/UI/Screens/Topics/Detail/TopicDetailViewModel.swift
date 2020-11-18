@@ -8,6 +8,12 @@
 import Foundation
 import Resolver
 
+
+protocol TopicDetailViewCoordinator {
+    func goToReplyTopic(topic: TopicItem)
+}
+
+
 protocol TopicDetailViewDelegate {
     func topicDidLoad()
     
@@ -17,6 +23,7 @@ protocol TopicDetailViewDelegate {
 }
 
 class TopicDetailViewModel {
+    var coordinator: TopicDetailViewCoordinator?
     var delegate: TopicDetailViewDelegate?
     @LazyInjected var dataClient: DataClient
     
@@ -56,6 +63,14 @@ class TopicDetailViewModel {
     
     func numberOfPosts() -> Int {
         return postViewModels.count
+    }
+    
+    func replyTopicButtonTapped(){
+        self.coordinator?.goToReplyTopic(topic: topicViewModel!.topic)
+    }
+    
+    func refreshTopic(){
+        loadTopic()
     }
 }
 

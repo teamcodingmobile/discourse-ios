@@ -31,7 +31,14 @@ class TopicDetailViewController: UIViewController {
 
         setupUI()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.refreshTopic()
+    }
 
+    @IBAction func onReplyButtonTapped(_ sender: Any) {
+        viewModel.replyTopicButtonTapped()
+    }
     
     func setupUI() {
         replyButton.layer.cornerRadius = replyButton.frame.width / 2
@@ -44,6 +51,9 @@ class TopicDetailViewController: UIViewController {
         
         let postNib = UINib.init(nibName: "PostItemCell", bundle: nil)
         tableView.register(postNib, forCellReuseIdentifier: "PostItemCell")
+        
+        
+        
     }
 }
 

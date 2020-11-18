@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "__pthread_kill:(null)">
+      </ContextState>
+      <ContextState
+         contextName = "TopicDetailViewModel.replyTopicButtonTapped():TopicDetailViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "coordinator">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ReplyTopicViewModel.cancelReply():ReplyTopicViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "coordinatorDelegate">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ReplyTopicViewController.onCancelButtonTapped(_:):ReplyTopicViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "viewModel">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

@@ -16,7 +16,6 @@ enum HttpClientError: Error, Equatable {
 
 final class HttpClient: DataClient {
     
-    
     var baseUrl: URL
     
     var apiKey: String
@@ -85,6 +84,12 @@ final class HttpClient: DataClient {
             success()
         }, onError: error)
     }
+    
+    func replyTopic(withData data: ReplyTopicForm, onSuccess success: @escaping () -> (), onError error: ((Error?) -> ())?) {
+        send(request: ReplyTopicRequest(withData: data), onSuccess: { (_) in
+            success()
+        }, onError: error)
+    }
 
     func login(withData data: LoginForm, onSuccess success: @escaping () -> (), onError error: ((Error?) -> ())?) {
         send(request: LoginRequest(data: data), onSuccess: { [weak self] response in
@@ -122,7 +127,7 @@ final class HttpClient: DataClient {
         let task = session.dataTask(with: urlRequest) { data, response, error in
             if data != nil {
                 let rawData = String(data: data!, encoding: .utf8)
-                print(rawData)
+                print(rawData!)
             }
             guard let httpResponse = response as? HTTPURLResponse else {
                 fatalError("Unable to cast response to \(HTTPURLResponse.self)")

@@ -77,6 +77,12 @@ extension AuthenticationCoordinator: LoginCoordinatorDelegate {
 
 extension AuthenticationCoordinator: RegistrationCoordinatorDelegate {
     func onSuccessRegistration() {
-        //TODO: Go to login
+        let viewModel = LoginViewModel()
+        let viewController = LoginViewController(viewModel: viewModel)
+        
+        viewModel.delegate = viewController
+        viewModel.coordinatorDelegate = self
+        
+        presenter.pushViewController(viewController, animated: true)
     }
 }

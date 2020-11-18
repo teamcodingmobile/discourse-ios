@@ -48,7 +48,7 @@ class PasswordRecoveryViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        usernameInput.becomeFirstResponder()
+        let _ = usernameInput.becomeFirstResponder()
     }
     
     func setupNavbar() {
