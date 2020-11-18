@@ -22,10 +22,10 @@ struct RegisterUserRequest: HttpRequest {
     
     var body: [String : Any] {
         return [
-            "username": data.username,
-            "name": data.name,
-            "email": data.email,
-            "password": data.password
+            "username": data.username as Any,
+            "name": data.name as Any,
+            "email": data.email as Any,
+            "password": data.password as Any
         ]
     }
 }

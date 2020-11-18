@@ -39,7 +39,7 @@ class ReplyTopicViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        replyInput.becomeFirstResponder()
+        let _ = replyInput.becomeFirstResponder()
     }
     
     

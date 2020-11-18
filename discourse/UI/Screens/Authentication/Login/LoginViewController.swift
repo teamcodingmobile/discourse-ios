@@ -47,7 +47,7 @@ class LoginViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        inputUsername.becomeFirstResponder()
+        let _ = inputUsername.becomeFirstResponder()
     }
     
     func setupNavbar() {
@@ -143,7 +143,7 @@ extension LoginViewController: UITextFieldDelegate {
         
         switch textField {
         case inputUsername.textView:
-            inputPassword.becomeFirstResponder()
+            let _ = inputPassword.becomeFirstResponder()
         default:
             submit()
         }

@@ -127,7 +127,7 @@ final class HttpClient: DataClient {
         let task = session.dataTask(with: urlRequest) { data, response, error in
             if data != nil {
                 let rawData = String(data: data!, encoding: .utf8)
-                print(rawData)
+                print(rawData!)
             }
             guard let httpResponse = response as? HTTPURLResponse else {
                 fatalError("Unable to cast response to \(HTTPURLResponse.self)")

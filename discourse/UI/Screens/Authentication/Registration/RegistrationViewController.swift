@@ -52,7 +52,7 @@ class RegistrationViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        usernameInput.becomeFirstResponder()
+        let _ = usernameInput.becomeFirstResponder()
     }
     
     func setupNavbar() {
@@ -193,13 +193,13 @@ extension RegistrationViewController: UITextFieldDelegate {
         
         switch textField {
         case usernameInput.textView:
-            nameInput.becomeFirstResponder()
+            let _ = nameInput.becomeFirstResponder()
         case nameInput.textView:
-            emailInput.becomeFirstResponder()
+            let _ =  emailInput.becomeFirstResponder()
         case emailInput.textView:
-            passwordInput.becomeFirstResponder()
+            let _ = passwordInput.becomeFirstResponder()
         case passwordInput.textView:
-            passwordConfirmationInput.becomeFirstResponder()
+            let _ =  passwordConfirmationInput.becomeFirstResponder()
         default:
             submit()
         }

@@ -22,7 +22,7 @@ struct RecoverPasswordRequest: HttpRequest {
     
     var body: [String : Any] {
         return [
-            "login": data.username
+            "login": data.username as Any
         ]
     }
 }

@@ -32,7 +32,7 @@ class CreateTopicViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        titleInput.becomeFirstResponder()
+        let _ = titleInput.becomeFirstResponder()
     }
     
     func setupUI() {
