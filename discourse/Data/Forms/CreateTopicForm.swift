@@ -16,7 +16,7 @@ class CreateTopicForm: Form {
     
     var fields: [FormField] {
         return [
-            FormField(name: "title", value: title, constraints: [.isRequired])
+            FormField(name: "title", value: title, constraints: [.isRequired, .isGreaterThan(15)])
         ]
     }
 }

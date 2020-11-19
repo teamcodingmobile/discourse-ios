@@ -20,7 +20,7 @@ struct RegisterUserForm: Form {
                 FormField(name: "username", value: username, constraints: [.isRequired]),
                 FormField(name: "name", value: name, constraints: [.isRequired]),
                 FormField(name: "email", value: email, constraints: [.isRequired, .isEmail]),
-                FormField(name: "password", value: password, constraints: [.isRequired]),
+                FormField(name: "password", value: password, constraints: [.isRequired, .isGreaterThan(10)]),
                 FormField(
                     name: "passwordConfirmation",
                     value: passwordConfirmation,

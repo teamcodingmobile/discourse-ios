@@ -68,6 +68,10 @@ class Constraint {
         return EqualsContraint(expectedValue: expectedValue, message: message)
     }
     
+    static func isGreaterThan(_ minValue: Int) -> GreaterThanConstraint {
+        return GreaterThanConstraint(minValue: minValue)
+    }
+    
     func validate(_ value: String?) throws {}
 }
 
@@ -104,6 +108,20 @@ class EqualsContraint: Constraint {
     override func validate(_ value: String?) throws {
         if expectedValue != value {
             throw ConstraintViolation.violation(message: NSLocalizedString(message, comment: ""))
+        }
+    }
+}
+
+class GreaterThanConstraint: Constraint {
+    let minValue: Int
+    
+    init(minValue: Int) {
+        self.minValue = minValue
+    }
+    
+    override func validate(_ value: String?) throws {
+        if value != nil && minValue >= value!.count {
+            throw ConstraintViolation.violation(message: NSLocalizedString("validation.greater_than", comment: "").replacingOccurrences(of: "{number}", with: String(minValue)))
         }
     }
 }

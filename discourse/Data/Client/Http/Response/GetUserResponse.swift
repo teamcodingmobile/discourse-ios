@@ -20,7 +20,7 @@ struct GetUserResponse: Codable {
         case id
         case username
         case name
-        case topicsCount = "topics_entered"
+        case topicsCount = "topic_count"
         case postsCount = "post_count"
         case likesCount = "like_count"
         case avatarTemplate = "avatar_template"
